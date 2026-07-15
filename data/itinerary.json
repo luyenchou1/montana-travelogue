@@ -1,0 +1,74 @@
+{
+  "_source": "Reconstructed from Luyen's personal Google Calendar (luyen.chou@gmail.com), retrieved 2026-07-15.",
+  "_caveats": [
+    "Google all-day events use an EXCLUSIVE end date; multi-day spans below are interpreted, not stated. Verify against photo EXIF timestamps.",
+    "A 'Fishing: Armstrong' event (Jul 15-17) exists on the calendar but Luyen confirmed it is spurious — Armstrong was NOT fished on this trip. Excluded.",
+    "Guides, outfitters, put-in/take-out points, and beat assignments are NOT in the calendar. Need Granola debriefs or Luyen's recollection."
+  ],
+  "trip": {
+    "title": "Montana 2026",
+    "anglers": ["Luyen Chou", "Thorne Sparkman"],
+    "start": "2026-07-10",
+    "end": "2026-07-15"
+  },
+  "days": [
+    {
+      "date": "2026-07-10",
+      "type": "travel",
+      "summary": "Fly to Bozeman",
+      "detail": "Luyen EWR→BZN JetBlue 1538, arr 12:02p. Thorne BOS→BZN JetBlue 257, arr 11:42a.",
+      "confidence": "high"
+    },
+    {
+      "date": "2026-07-11",
+      "type": "fishing",
+      "water": "DePuy's Spring Creek",
+      "region": "Paradise Valley, near Livingston MT",
+      "style": "wade",
+      "summary": "DePuy's Spring Creek — day 1",
+      "source": "Calendar event: 'CONFIRMED DePuy's Spring creek'",
+      "confidence": "high"
+    },
+    {
+      "date": "2026-07-12",
+      "type": "fishing",
+      "water": "DePuy's Spring Creek",
+      "region": "Paradise Valley, near Livingston MT",
+      "style": "wade",
+      "summary": "DePuy's Spring Creek — day 2; transfer to Craig",
+      "note": "Trout Shop lodging in Craig begins this night.",
+      "confidence": "medium"
+    },
+    {
+      "date": "2026-07-13",
+      "type": "fishing",
+      "water": "Missouri River",
+      "region": "Craig, MT",
+      "style": "drift boat",
+      "summary": "Missouri River — day 1",
+      "source": "Calendar event: 'Fishing Craig (Missouri)'",
+      "confidence": "high"
+    },
+    {
+      "date": "2026-07-14",
+      "type": "fishing",
+      "water": "Missouri River",
+      "region": "Craig, MT",
+      "style": "drift boat",
+      "summary": "Missouri River — day 2; drive to Bozeman",
+      "note": "Holiday Inn Express Bozeman West (2305 Catron St) this night.",
+      "confidence": "medium"
+    },
+    {
+      "date": "2026-07-15",
+      "type": "travel",
+      "summary": "Fly home",
+      "detail": "BZN→EWR JetBlue 2003, 1:10p MT → 7:33p ET.",
+      "confidence": "high"
+    }
+  ],
+  "lodging": [
+    { "nights": "2026-07-12 → 2026-07-14", "name": "The Trout Shop", "place": "Craig, MT", "confidence": "medium" },
+    { "nights": "2026-07-14", "name": "Holiday Inn Express & Suites Bozeman West", "place": "2305 Catron Street, Bozeman, MT 59718", "confidence": "high" }
+  ]
+}
