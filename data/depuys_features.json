@@ -1,0 +1,48 @@
+{
+  "_sources": [
+    "Official DePuy Spring Creek hand-drawn map (Rod Walinchus), provided by Luyen 2026-07-15",
+    "https://www.yellowstoneangler.com/pages/depuy-spring-creek (fetched 2026-07-15)",
+    "Photo EXIF + debrief transcripts for trip-specific anchors"
+  ],
+  "_orientation": "Creek flows roughly south-to-north, parallel to US-89, joining the Yellowstone. 'Upper' = south/upstream (Armstrong border), 'Lower' = north/downstream (Yellowstone confluence). On the hand-drawn map north is LEFT.",
+  "creek_length_miles": 2.8,
+  "rules": "Fly fishing and catch-and-release only",
+  "owners_note": "Betty Smith, Daryl & Theresa Smith invite you to enjoy our creek (per map)",
+  "sections": [
+    {
+      "name": "Upper DePuy's",
+      "description": "Upper pond, slough, Annie's Run, Betty's Riffle, PhD Pool; runs to a southern culvert at the Armstrong Spring Creek border fence.",
+      "trip_relevance": "The fly shop sits here. PhD Pool is 'at the very, very top' (Thorne, session 2). Luyen's Friday photo of the closed shop = 45.5547, -110.5906."
+    },
+    {
+      "name": "Middle Section",
+      "description": "From Dick's Pond up to the Narrows. Deep holes, undercut banks. Angler's Hut with parking.",
+      "trip_relevance": "Saturday's water (photo cluster 45.5611-45.5669) falls in this reach. Likely the 'picnic table place' parking with the big pool above it. Confidence: medium, pending research agent."
+    },
+    {
+      "name": "Lower DePuy's",
+      "description": "From Dick's Pond's waterfall outlet down to the Yellowstone confluence. Oxygen-rich riffles. Eva's Hut and the Main House (white house) are at this end.",
+      "trip_relevance": "Sunday's water (photo cluster 45.5803-45.5826) is ~2.9 km downstream of the shop, in or near this reach. Thorne hit for the cycle here Sunday morning."
+    }
+  ],
+  "features": [
+    { "name": "Buzz's Fly Shop", "kind": "shop", "lat": 45.5547, "lon": -110.5906, "confidence": "high", "note": "Exact from IMG_1584 EXIF (Fri 2:55 PM, shop closed). Yellowstone Angler: 'Buzz's fly shop is located next to Betty's Riffle.' This resolves the transcript's 'get flies from Buzz, but he wasn't there.'" },
+    { "name": "Betty's Riffle", "kind": "riffle", "lat": null, "lon": null, "confidence": "high-existence", "note": "Adjacent to the fly shop (both sources)." },
+    { "name": "PhD Pool", "kind": "pool", "lat": null, "lon": null, "confidence": "high-existence", "note": "'One of the best, yet most challenging holes' (Yellowstone Angler). 'At the very, very top' (Thorne). Upper section, near the southern culvert / Armstrong border. THE name behind 'PhD fish' in the anglers' vocabulary." },
+    { "name": "Annie's Run", "kind": "run", "lat": null, "lon": null, "confidence": "high-existence", "note": "Upper section (Yellowstone Angler)." },
+    { "name": "The Narrows", "kind": "landmark", "lat": null, "lon": null, "confidence": "high-existence", "note": "Upstream limit of the Middle Section description." },
+    { "name": "Angler's Hut", "kind": "hut", "lat": null, "lon": null, "confidence": "high-existence", "note": "Middle Section, with parking (hand map). Warming hut with stove and firewood." },
+    { "name": "Dick's Pond", "kind": "pond", "lat": null, "lon": null, "confidence": "high-existence", "note": "Main pond fronting the white house; mostly browns. Waterfall outlet marks the top of Lower DePuy's." },
+    { "name": "Dick's Riffle", "kind": "riffle", "lat": null, "lon": null, "confidence": "medium", "note": "Labeled on hand map near Main House area." },
+    { "name": "Dave's Pond (Float Cabin)", "kind": "pond", "lat": null, "lon": null, "confidence": "medium", "note": "Hand map, center of property." },
+    { "name": "Eva's Hut", "kind": "hut", "lat": null, "lon": null, "confidence": "high-existence", "note": "North/lower end (hand map)." },
+    { "name": "Fisherman's Hut", "kind": "hut", "lat": null, "lon": null, "confidence": "high-existence", "note": "Near the fly shop (hand map)." },
+    { "name": "Main House", "kind": "landmark", "lat": null, "lon": null, "confidence": "high-existence", "note": "The white house fronted by Dick's Pond." },
+    { "name": "Main Entrance", "kind": "landmark", "lat": null, "lon": null, "confidence": "medium", "note": "Hand map, west side off the county road; 'one mile to Main Entrance' from Hwy 89 label." },
+    { "name": "Southern culvert / Armstrong border fence", "kind": "landmark", "lat": null, "lon": null, "confidence": "high-existence", "note": "Top of the property. Thorne, reviewing the photo map: 'So that is at a culvert.'" }
+  ],
+  "july_entomology": {
+    "pmd": "Blanket PMD hatches; Ephemerella infrequens #14-16 (mid-June to early July) then Ephemerella inermis #18-20 (mid-July through August) — the trip's size 18-20 rusty spinner matches E. inermis exactly.",
+    "note_for_flybox": "Rusty spinner = the spent-wing spinner stage of the PMD. Jamie's tip about 1-in-5-to-7 naturals having a red body pairs with this."
+  }
+}
