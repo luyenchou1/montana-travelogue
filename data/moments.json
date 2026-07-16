@@ -29,8 +29,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "Friday, 2:55 PM \u2014 barely off the plane and already walking the grass at DePuy's. Thorne scouts past the old wooden buildings on the first stop of the trip.",
+   "subject_kind": "person",
+   "species_confidence": null,
+   "hero_quality": 2,
+   "notable": "Per Luyen this stop is likely the visit to the little DePuy's fly shop that was closed when they arrived \u2014 the dark wooden building behind Thorne is plausibly that shop, though the frame doesn't confirm it. Image needs a 90-degree rotation before display. Timestamp (2:55 PM Fri) sits slightly earlier than the 'late afternoon' arrival recalled in session 1.",
+   "web": "img_1584.jpg"
   },
   {
    "id": "m02",
@@ -45,11 +50,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "west_boulder",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Arrival-day dividend: the West Boulder gave up exactly one fish that Friday evening, and this rainbow was it \u2014 Thorne's, netted at 5:53 PM while Luyen went fishless.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 3,
+   "notable": "The cap literally reads 'WHERE'S THE FISH?' \u2014 answered, in this frame. Same green vest and sheepskin fly patch as IMG_1612, useful for identity continuity across days.",
+   "web": "img_1593.jpg"
   },
   {
    "id": "m03",
@@ -67,8 +77,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "Saturday, 8:47 AM at DePuy's \u2014 rod out over the glass, weed beds swaying underneath, about an hour before the morning's first fish came to hand.",
+   "subject_kind": "fish-water",
+   "species_confidence": null,
+   "hero_quality": 3,
+   "notable": "Timestamped 8:47 AM Saturday \u2014 the calm-before shot preceding the 9:42/9:51/10:01 fish sequence at nearly the same GPS point. Needs a 90-degree rotation before display. The water clarity and weed beds read unmistakably as spring creek.",
+   "web": "img_1603.jpg"
   },
   {
    "id": "m04",
@@ -83,11 +98,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "cutthroat",
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Thorne's Saturday-morning cutthroat at DePuy's, 9:42 AM \u2014 slash-jawed and copper-bellied, one of the three he took that morning, all on PMDs. Nine minutes later Luyen answered with a cutthroat of his own.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 5,
+   "notable": "Strongest catch photo in this batch \u2014 direct sun, full fish broadside, genuine smile, blue sky and creek behind. The sheepskin patch on his vest carries several flies. This cutthroat may be the 'cut' in Thorne's hit-for-the-cycle run, though the transcript leaves the cycle's exact day ambiguous.",
+   "web": "img_1612.jpg"
   },
   {
    "id": "m05",
@@ -102,11 +122,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "cutthroat",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "First one is a cutthroat, 9:51. Luyen opens Saturday morning at DePuy's with a Yellowstone cutthroat \u2014 bamboo rod and click reel tucked under his arm, spots crowding the tail, that telltale orange under the jaw.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 5,
+   "notable": "The bamboo rod and silver click reel are prominently visible resting across the net hoop \u2014 a nice gear detail. A vehicle and fence line are visible on the road atop the bank behind him.",
+   "web": "img_0983.jpg"
   },
   {
    "id": "m06",
@@ -121,11 +146,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "One minute before the hero shot: the slab rests in Luyen's net at DePuy's, trailing a strand of creek weed, while the rusty spinner's work is done for the moment.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "medium",
+   "hero_quality": 4,
+   "notable": "Strands of green aquatic weed cling to the fish \u2014 same weedy spring-creek detail the anglers remarked on for another catch. The wooden net handle carries a maker's stamp. Ambiguity worth flagging: the transcript's 'other one in the net... riffle corner' line could refer to this frame or to FullSizeRender.jpeg (10:49 AM, also Thorne's camera).",
+   "web": "img_0990.jpg"
   },
   {
    "id": "m07",
@@ -140,11 +170,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "The slab. Ten minutes after the cutthroat, Luyen cradles a really big, thick DePuy's rainbow \u2014 probably fooled by the same rusty spinner that would carry the whole day.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 4,
+   "notable": "The fish's girth is striking relative to the hands holding it, which sells the 'slab' nickname. Both of Luyen's hands are in frame, meaning Thorne shot this close over his shoulder.",
+   "web": "img_1003.jpg"
   },
   {
    "id": "m08",
@@ -159,11 +194,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Two in rapid succession: Luyen with the Saturday-morning slab, a rainbow nearly as long as the frame, moments before it went back into DePuy's Spring Creek.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 4,
+   "notable": "Shot six seconds after IMG_1003 \u2014 same fish, pulled back to get Luyen's face in frame. The fish spans nearly the full width of the photo, which makes its size legible in a way the close-up doesn't.",
+   "web": "img_1005.jpg"
   },
   {
    "id": "m09",
@@ -178,11 +218,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "brown",
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Buttery flanks and haloed spots over a bed of spring-creek weed \u2014 a DePuy's brown settles in the net, late Saturday morning. If the reconstruction holds, this is the fish that completed Thorne's cut-bow-brown cycle.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 4,
+   "notable": "The only net-in-water fish shot in this batch. The clear water shows the weed beds DePuy's browns tuck into. Angler attribution is the one open question here \u2014 transcript supports both Thorne (his Saturday cycle brown) and Luyen ('the other one in the net, I think was my fish'), and the visual species (brown, not cut) slightly undercuts Luyen's own recollection.",
+   "web": "fullsizerender.jpg"
   },
   {
    "id": "m10",
@@ -198,10 +243,15 @@
    "camera": "iPhone 17 Pro Max",
    "place": "depuys",
    "species": null,
-   "angler": null,
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "Rod bent, line tight \u2014 Thorne hooked up on DePuy's late Saturday morning, with the mountains of Paradise Valley standing watch.",
+   "subject_kind": "person",
+   "species_confidence": null,
+   "hero_quality": 5,
+   "notable": "The only frame in this batch of an angler actively fighting a fish \u2014 the full arc of the rod against open sky makes it a natural hero image. The clear-rubber net on his hip matches the net in FullSizeRender.jpeg, taken 51 minutes earlier on his phone. No landed fish is visible, so this hookup can't be tied to a specific catch.",
+   "web": "img_1623.jpg"
   },
   {
    "id": "m11",
@@ -219,8 +269,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "Saturday, high noon at DePuy's: two grins, a shoulder patch full of flies, and one cap asking the eternal question \u2014 WTF, Where's the Fish?",
+   "subject_kind": "person",
+   "species_confidence": null,
+   "hero_quality": 4,
+   "notable": "Luyen's mirrored lenses reflect his own outstretched arm holding the phone \u2014 confirming this is a selfie on his iPhone 17 Pro Max. Thorne's 'WTF \u2014 Where's the Fish?' cap is a gift of a detail. The wool patch on Thorne's vest has flies drying in it. This is the best 'the two of them together' frame for the site.",
+   "web": "img_1625.jpg"
   },
   {
    "id": "m12",
@@ -235,11 +290,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Number five of the morning? Luyen steadies a DePuy's rainbow at the waterline before letting it go \u2014 the rusty spinner was the ticket, and the bamboo rod never left his arm.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 5,
+   "notable": "Beautiful release-moment framing \u2014 fish half in the water, not a grip-and-grin, which suits the sight-fishing ethos of the trip. The click reel and cork grip are clearly visible for gear-heads. At 12:14 PM this is the last catch photo of Saturday morning before the 1:30 wrap-up shots.",
+   "web": "img_1017.jpg"
   },
   {
    "id": "m13",
@@ -257,8 +317,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "Last frame before the midday nap \u2014 Luyen at the picnic-table pullout on DePuy's, Saturday 1:30, the Absarokas doing their thing behind him.",
+   "subject_kind": "person",
+   "species_confidence": null,
+   "hero_quality": 4,
+   "notable": "The culvert visible at right matches Thorne's later map-pin comment 'So that is at a culvert.' This is the picnic-table parking spot they returned to both DePuy's days.",
+   "web": "img_1024.jpg"
   },
   {
    "id": "m14",
@@ -276,8 +341,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "Thorne's turn at the picnic-table spot, forty-six seconds later \u2014 sandals on, day's fishing done, Saturday 1:31 before the drive back for a nap.",
+   "subject_kind": "person",
+   "species_confidence": null,
+   "hero_quality": 4,
+   "notable": "Taken with Thorne's own phone even though Thorne is the subject \u2014 evidence they handed one phone back and forth for this pair of portraits. Sandals, not waders: they were off the water for the midday break.",
+   "web": "img_1026.jpg"
   },
   {
    "id": "m15",
@@ -292,11 +362,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "cutbow",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Sunday morning at the riffle corner \u2014 Luyen's fish in the net, the little red-bodied fly still in its lip. \"Isn't that the cut?\"",
+   "subject_kind": "fish-catch",
+   "species_confidence": "medium",
+   "hero_quality": 4,
+   "notable": "The fly visible at the fish's snout has a distinctly red body \u2014 a striking match for Jamie's tip that the rare red-bodied rusty spinner (size 18-20, poly yarn wings) was 'the key,' the fly Luyen caught nearly everything on.",
+   "web": "fullsizerender-1.jpg"
   },
   {
    "id": "m16",
@@ -311,11 +386,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "brown",
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "\"It's cool that it's got the weed there\" \u2014 Thorne brings his Sunday-morning brown to the net on DePuy's, rod high, duckweed and all.",
+   "subject_kind": "fish-water",
+   "species_confidence": "low",
+   "hero_quality": 4,
+   "notable": "This is plausibly the netting moment of the brown that completed Thorne's 'hit for the cycle' morning (cutthroat, rainbow, brown). Weed is visibly hanging from the net \u2014 the detail Thorne loved about the brown-trout photo.",
+   "web": "img_1640.jpg"
   },
   {
    "id": "m17",
@@ -330,11 +410,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Thorne with the 'bow' leg of his cycle \u2014 rainbow in hand, rod in teeth, DePuy's on a Sunday morning.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 5,
+   "notable": "The rod held in his teeth and the fly-studded wool patch on the vest make this the most character-rich catch photo of the set; the wooden net visible underwater matches the net in other DePuy's shots.",
+   "web": "img_1647.jpg"
   },
   {
    "id": "m18",
@@ -352,8 +437,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "PMD duns on every single blade of grass \u2014 the bank at DePuy's, Sunday midday.",
+   "subject_kind": "insects",
+   "species_confidence": null,
+   "hero_quality": 3,
+   "notable": "This is the exact photo Luyen describes taking in the debrief \u2014 the transcript line maps one-to-one. Taken on Luyen's phone Sun 12:10 PM at DePuy's. Explains what the trout were eating that morning (Thorne's day-1 fish all came on PMDs).",
+   "web": "img_1668.jpg"
   },
   {
    "id": "m19",
@@ -368,11 +458,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "cutthroat",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "The cut from the riffle corner, resting in the net \u2014 Luyen's fish, DePuy's day two.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 4,
+   "notable": "The only in-the-net fish photo in this batch \u2014 it is almost certainly 'the other one in the net' the anglers debate in session 3, which they resolve as Luyen's cutthroat.",
+   "web": "img_1677.jpg"
   },
   {
    "id": "m20",
@@ -387,11 +482,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "depuys",
-   "species": null,
-   "angler": null,
+   "species": "brown",
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Thorne's chunky brown over the weed bed \u2014 the last fish of DePuy's, eased back home.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 4,
+   "notable": "This is the brown that completed Thorne's cut-bow-brown 'cycle' day at DePuy's, and the release-in-the-water framing with the weed bed is the detail both anglers remembered ('it's got the weed there'). Taken Sun 1:10 PM.",
+   "web": "img_1680.jpg"
   },
   {
    "id": "m21",
@@ -409,8 +509,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "Welcome to the Missouri \u2014 Thorne under a cloud of bugs at Craig, Sunday evening, before a single cast.",
+   "subject_kind": "person",
+   "species_confidence": null,
+   "hero_quality": 3,
+   "notable": "This matches the known non-fish photo Luyen described as 'a Trico cloud above Thorne's head at the Missouri launch.' EXIF puts it at Craig, Sun 8:01 PM \u2014 the evening they arrived at the Missouri after leaving DePuy's, foreshadowing the Trico clouds they'd float through at Holter the next morning. Image needs a 90-degree rotation for display.",
+   "web": "img_1687.jpg"
   },
   {
    "id": "m22",
@@ -428,8 +533,13 @@
    "species": null,
    "angler": null,
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": false,
+   "caption": "First light on the Missouri, day one at Holter: Tricos in clouds thick enough to catch the sun, a lone figure already in the water. Luyen said he'd never seen anything like it.",
+   "subject_kind": "insects",
+   "species_confidence": null,
+   "hero_quality": 4,
+   "notable": "The 'snow' filling the sky is thousands of individual backlit Tricos, not sensor dust \u2014 a genuinely unusual capture. A drift boat and a second distant angler are visible mid-river, confirming the 'massive numbers of boats' at the dam. Slight green lens flare lower left.",
+   "web": "img_1708.jpg"
   },
   {
    "id": "m23",
@@ -444,11 +554,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "missouri_holter",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "thorne",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Fourteen minutes into the first Missouri morning: Thorne with the rainbow that ate a tiny Trico on the far bank, right where they crossed below Holter Dam.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 3,
+   "notable": "File is rotated 90 degrees \u2014 needs orientation correction before display. The amber wool fly-drying patch on Thorne's vest and the mirror-calm reflection of his silhouette are nice details; this is the only confirmed Thorne fish photo from the Missouri days in this batch.",
+   "web": "img_1728.jpg"
   },
   {
    "id": "m24",
@@ -463,11 +578,16 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "missouri_holter",
-   "species": null,
-   "angler": null,
+   "species": "cutthroat",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Midday on the day-one float: Luyen's hopper-dropper cutthroat from the boat, the orange slash just peeking out under its jaw.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "medium",
+   "hero_quality": 4,
+   "notable": "The under-jaw slash makes this likely the only cutthroat photographed on the Missouri days \u2014 the 'cut' Luyen mentions getting on the bobber. A hybrid (cutbow) can't be ruled out given the heavy full-body spotting.",
+   "web": "img_1051.jpg"
   },
   {
    "id": "m25",
@@ -482,11 +602,16 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "missouri_holter",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "Back at Monday's bank on the last morning, and this time it paid: Luyen slips his long-cast Trico rainbow home. \"I love the one I caught in the morning.\"",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 4,
+   "notable": "GPS puts this within ~30 m of IMG_1728 from the previous morning \u2014 visual proof they returned to the same 'prime timey' water. Luyen is in a plaid shirt rather than his usual sun hoodie; his rod's green-marbled reel seat matches the rod laid out in IMG_1831.",
+   "web": "img_1826.jpg"
   },
   {
    "id": "m26",
@@ -501,11 +626,17 @@
    "photographer": "luyen",
    "camera": "iPhone 17 Pro Max",
    "place": "missouri_holter",
-   "species": null,
-   "angler": null,
+   "species": "rainbow",
+   "angler": "luyen",
    "fly": null,
-   "is_catch": null,
-   "caption": null
+   "is_catch": true,
+   "caption": "The last Missouri fish and the one Luyen loved: a big, deep-bodied rainbow from the inside braid of the island, laid beside the five-weight for a moment before going back.",
+   "subject_kind": "fish-catch",
+   "species_confidence": "high",
+   "hero_quality": 4,
+   "notable": "The rod blank is legible \u2014 'ALBRIGHT EXR-FW / 590-4 / #5 Line 9'0\" / 2.8 oz' \u2014 a concrete gear fact for the site, and it visually ties this fish to Luyen via the matching reel in IMG_1826. Tiny purple speedwell flowers in the weeds are a lovely detail.",
+   "web": "img_1831.jpg"
   }
- ]
+ ],
+ "_analysis": "species/angler/captions merged 2026-07-16 from 6-agent visual pass cross-referenced against transcripts. Attribution basis in each agent report; anchor-calibrated."
 }

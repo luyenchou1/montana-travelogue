@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "travelogue",
+      "cwd": "/Users/lchou/Code/montana-travelogue",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8517", "--directory", "/Users/lchou/Code/montana-travelogue"],
+      "port": 8517
+    }
+  ]
+}
