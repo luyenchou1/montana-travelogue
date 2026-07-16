@@ -1,0 +1,16 @@
+{
+  "_sources": [
+    "Nominatim/OSM geocoding 2026-07-16 (Holter Dam, Craig, Wolf Creek)",
+    "Photo EXIF anchors from the trip",
+    "Debrief transcripts (launch time, boats at the dam, islands, beaver dam flat)"
+  ],
+  "features": [
+    { "name": "Holter Dam", "kind": "landmark", "lat": 46.99177, "lon": -112.00438, "confidence": "high", "note": "Nominatim. Launch was the FAS ramp just below the dam — 'up at the boat by 7 o'clock... massive numbers of boats up at the dam.' Both mornings' first photos sit ~600 m downstream." },
+    { "name": "Morning riser bank", "kind": "section", "lat": 46.9971, "lon": -112.0078, "confidence": "high", "note": "Photo-anchored (IMG_1708/1728/1826 within ~30 m across BOTH days). Crossed immediately after launch to rising fish; Thorne's Trico rainbow day 1, Luyen's long-cast Trico rainbow day 2. The Trico-cloud photo is here." },
+    { "name": "Day 1 midday water", "kind": "section", "lat": 47.01301, "lon": -112.00681, "confidence": "high", "note": "IMG_1051 (Luyen's hopper-dropper cut from the boat, Mon 1:31 PM). The single-big-island reach with the PhD fish is this general stretch — exact island unconfirmed." },
+    { "name": "Two-island riffle + beaver-dam flat", "kind": "section", "lat": 47.03402, "lon": -111.99425, "confidence": "medium", "note": "IMG_1831 (Tue 12:42 PM, the last-and-favorite rainbow from the inside braid). Transcript: 'two islands with a big riffle section on the left' then 'downstream of the beaver dam... dry fly to sipping fish' to end the trip. Photo pins the braid; the beaver-dam flat itself is unpinned." },
+    { "name": "Wolf Creek (village)", "kind": "town", "lat": 47.00608, "lon": -112.06927, "confidence": "high", "note": "Nominatim. The Wolf Creek Bridge FAS is between the dam and Craig; exact ramp point not independently verified — shown as approximate if at all." },
+    { "name": "Craig", "kind": "town", "lat": 47.07439, "lon": -111.96333, "confidence": "high", "note": "Nominatim; trip photo IMG_1687 (Sun 8:01 PM, Thorne under the bug cloud) lands 25 m from this point. Lodging: The Trout Shop. Presumed take-out (unconfirmed)." }
+  ],
+  "float_notes": "Launched at the Holter Dam ramp both days (transcript + photo clusters). Take-out not documented — likely Craig FAS given lodging, marked unconfirmed. Per Luyen's direction the site shows photo points only, NO fabricated float path."
+}
