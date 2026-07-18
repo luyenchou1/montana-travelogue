@@ -137,6 +137,28 @@ figcaption .meta{display:block;font-family:var(--mono);font-size:.68rem;color:va
 .pin-g{cursor:pointer}
 .pin-g:hover circle:first-child{fill:rgba(181,67,44,.18)}
 
+
+/* ---------- depuys dual map ---------- */
+.dep-controls{display:flex;gap:8px;justify-content:center;padding:18px 0 0}
+.dep-controls button{font-family:Archivo,sans-serif;font-weight:600;font-size:.7rem;
+  letter-spacing:.18em;text-transform:uppercase;padding:9px 16px;cursor:pointer;
+  background:transparent;color:var(--sepia);border:1px solid var(--sepia-lt)}
+.dep-controls button.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.dep-wrap{position:relative;max-width:1000px;margin:20px auto 0}
+.dep-wrap img.depmap-img{width:100%;display:block;border:1px solid var(--sepia-lt);
+  box-shadow:0 18px 40px -26px rgba(20,34,25,.5)}
+.dep-pin{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  font-family:var(--mono);font-size:11px;font-weight:600;color:#EFE7D8;
+  border:1.5px solid #2E3B32;box-shadow:0 0 0 3px rgba(239,231,216,.55),0 2px 6px rgba(0,0,0,.35);
+  transition:transform .15s ease}
+.dep-pin:hover{transform:translate(-50%,-50%) scale(1.25);z-index:5}
+.dep-pin .ct{position:absolute;top:-7px;right:-10px;font-size:8.5px;color:#2E3B32;
+  background:#EFE7D8;border-radius:6px;padding:0 3px;border:1px solid var(--sepia-lt)}
+.dep-credit{max-width:1000px;margin:8px auto 0;text-align:center;
+  font-family:var(--mono);font-size:.66rem;color:var(--sepia);letter-spacing:.06em}
+#depmap{height:64svh;min-height:380px;background:#0c1210;border:1px solid var(--sepia-lt)}
+
 /* ---------- chart ---------- */
 .chart-wrap{background:var(--bone);border:1px solid var(--sepia-lt);padding:22px 14px 8px;margin:26px 0}
 .chart-wrap svg{width:100%;height:auto;display:block}
@@ -193,6 +215,7 @@ figcaption .meta{display:block;font-family:var(--mono);font-size:.68rem;color:va
   border-left:9px solid transparent;border-right:9px solid transparent;
   border-bottom:15px solid var(--gold);filter:drop-shadow(0 1px 3px rgba(0,0,0,.6))}
 .bench-pin.d2 .tri{border-bottom-color:var(--rust)}
+.bench-pin.d0 .tri{border-bottom-color:var(--sepia)}
 .bench-pin.town .tri{border-bottom:0;border-top:0;border-left:0;border-right:0;
   width:9px;height:9px;left:-5px;top:-5px;background:var(--bone);border-radius:50%;
   box-shadow:0 0 0 2px var(--deep), 0 1px 3px rgba(0,0,0,.6)}
@@ -433,147 +456,18 @@ table.tally .n{font-family:var(--mono);color:var(--ink)}
   <div class="plate-head">
     <div class="kicker">Plate II · DePuy's Spring Creek</div>
     <h2 style="margin-bottom:2px">The Beat Map</h2>
-    <div class="mono">DRAWN FROM SATELLITES AND ARGUED FROM MEMORY · NORTH UP · CREEK FLOWS UP THE PAGE</div>
+    <div class="mono">THE CLASSIC HANDOUT WE NAVIGATED BY · TOGGLE FOR THE SATELLITE TRUTH · NORTH POINTS LEFT, AS EVA AND BETTY INTENDED</div>
   </div>
-  <div class="beatmap-scroll"><svg class="beatmap" viewBox="0 0 560 1160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hand-drawn beat map of DePuy's Spring Creek">
-<defs>
-<filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4"/></filter>
-<filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/><feColorMatrix in="n" values="0 0 0 0 0.55 0 0 0 0 0.47 0 0 0 0 0.33 0 0 0 0.035 0"/><feComposite operator="over" in2="SourceGraphic"/></filter>
-</defs>
-<rect width="560" height="1160" fill="#EFE7D8"/>
-<rect width="560" height="1160" fill="#EFE7D8" filter="url(#paper)" opacity=".8"/>
-<rect x="8" y="8" width="544" height="1144" fill="none" stroke="#2E3B32" stroke-width="1.6"/>
-<rect x="14" y="14" width="532" height="1132" fill="none" stroke="#8A6F4B" stroke-width=".7"/>
-<g filter="url(#rough)"><path d="M56.9,1127.9 L60.4,1072.4 L61.2,1019.2 L59.8,965.0 L61.2,909.6 L62.9,852.5 L66.5,802.0 L66.2,743.3 L70.8,692.7 L72.0,634.4 L75.9,577.3 L76.7,523.7 L73.9,467.7 L76.4,416.9 L77.1,360.5 L81.3,304.2 L82.3,247.4 L80.9,193.2 L86.1,139.6 L85.4,85.5 L87.7,28.8" fill="none" stroke="#8A6F4B" stroke-width="2.2" stroke-dasharray="14 5" opacity=".55"/></g>
-<text x="40" y="580" fill="#8A6F4B" font-size="11" transform="rotate(-84 40 580)" letter-spacing="3">US-89 · SIX-ISH MILES TO LIVINGSTON</text>
-<g filter="url(#rough)" opacity=".5">
-<path d="M510.9,1122.0 L504.8,1071.4 L507.0,1025.0 L508.4,969.8 L510.3,918.7 L504.0,875.8 L500.7,823.7 L498.9,776.1 L505.6,725.8 L506.0,673.9 L503.6,627.3 L501.8,576.6 L503.8,532.1 L499.5,479.9 L494.7,430.9 L499.9,384.5 L501.0,328.0 L496.0,282.5 L491.8,231.1 L492.6,178.3 L490.9,135.4 L490.9,80.8 L492.9,37.7" fill="none" stroke="#4E7D96" stroke-width="4" stroke-linecap="round"/>
-<path d="M517.8,1119.5 L521.9,1074.5 L523.9,1024.9 L517.9,971.1 L518.0,926.4 L523.4,869.7 L514.9,821.1 L514.9,774.3 L517.8,722.7 L511.3,674.9 L514.3,627.0 L519.5,578.9 L514.5,528.8 L515.5,473.8 L517.1,431.7 L516.2,382.5 L510.7,329.2 L507.2,282.2 L506.2,227.1 L507.0,178.7 L507.7,128.3 L503.6,79.9 L504.0,32.6" fill="none" stroke="#4E7D96" stroke-width="2" stroke-linecap="round"/>
-<path d="M491.3,1123.7 L496.5,1067.1 L492.2,1019.7 L492.7,968.1 L496.9,927.5 L492.5,873.0 L488.0,819.8 L490.0,772.1 L494.2,721.7 L485.5,680.2 L489.9,622.8 L489.4,572.3 L488.6,532.4 L491.4,480.2 L484.7,427.6 L483.1,382.3 L486.1,333.0 L483.5,278.0 L487.7,236.3 L487.4,185.2 L486.5,135.1 L479.9,83.5 L480.6,29.3" fill="none" stroke="#4E7D96" stroke-width="2" stroke-linecap="round"/>
-</g>
-<text x="530" y="660" fill="#4E7D96" font-size="11" transform="rotate(-86 530 660)" letter-spacing="3" opacity=".8">YELLOWSTONE RIVER — THE HOT NEIGHBOR</text>
-<g filter="url(#rough)">
-<path d="M171.1,1126.6 Q171.1,1126.6 169.2,1125.3 Q167.2,1124.0 166.0,1123.4 Q164.8,1122.9 163.8,1120.5 Q162.8,1118.2 161.5,1116.7 Q160.2,1115.1 161.7,1111.8 Q163.1,1108.4 163.5,1100.3 Q163.8,1092.1 164.8,1081.4 Q165.7,1070.7 164.1,1066.4 Q162.5,1062.0 162.7,1057.7 Q163.0,1053.5 158.7,1047.3 Q154.4,1041.1 147.7,1034.2 Q140.9,1027.3 139.8,1025.1 Q138.7,1022.9 134.6,1018.6 Q130.5,1014.4 132.0,1006.3 Q133.4,998.3 133.4,989.8 Q133.4,981.3 134.0,975.7 Q134.5,970.0 133.9,961.8 Q133.4,953.6 134.5,948.8 Q135.5,944.1 136.6,936.1 Q137.7,928.0 138.6,916.9 Q139.5,905.8 140.9,899.2 Q142.4,892.6 145.3,876.6 Q148.3,860.7 148.5,845.4 Q148.7,830.2 147.0,822.6 Q145.4,815.1 142.8,805.4 Q140.3,795.6 139.3,790.9 Q138.3,786.3 138.3,781.7 Q138.3,777.2 137.7,773.4 Q137.1,769.7 137.0,765.9 Q136.9,762.2 138.9,759.4 Q140.9,756.7 142.6,753.3 Q144.3,750.0 151.9,743.4 Q159.4,736.7 160.5,733.1 Q161.6,729.5 160.7,726.8 Q159.8,724.1 158.8,721.6 Q157.8,719.1 158.9,713.1 Q160.1,707.1 159.7,704.0 Q159.3,700.9 161.8,697.3 Q164.4,693.7 164.9,689.0 Q165.4,684.3 166.1,683.1 Q166.8,682.0 167.5,679.4 Q168.1,676.9 166.9,670.4 Q165.6,663.8 165.3,662.7 Q165.0,661.6 160.9,658.0 Q156.9,654.5 155.1,653.4 Q153.3,652.2 153.0,648.0 Q152.8,643.7 151.8,640.4 Q150.7,637.1 151.2,633.5 Q151.7,629.9 150.0,628.5 Q148.3,627.2 145.5,624.3 Q142.8,621.4 143.4,617.2 Q144.0,613.1 143.8,611.6 Q143.6,610.2 144.0,607.4 Q144.4,604.5 145.3,600.4 Q146.2,596.3 147.7,590.5 Q149.1,584.7 151.5,575.5 Q153.9,566.3 156.7,559.6 Q159.5,552.8 160.8,540.2 Q162.1,527.5 164.7,520.7 Q167.3,513.8 173.9,503.5 Q180.5,493.1 183.5,490.8 Q186.6,488.5 187.2,488.8 Q187.8,489.2 189.9,490.8 Q192.0,492.4 194.4,490.3 Q196.9,488.3 196.0,484.5 Q195.0,480.8 199.9,476.6 Q204.9,472.5 206.8,468.6 Q208.6,464.8 213.7,464.0 Q218.8,463.3 223.0,462.2 Q227.2,461.1 228.9,461.5 Q230.6,461.9 233.1,457.9 Q235.7,453.9 237.0,447.9 Q238.4,442.0 243.3,435.1 Q248.3,428.2 250.3,421.0 Q252.3,413.7 253.1,411.1 Q253.9,408.4 252.6,405.5 Q251.2,402.7 250.7,401.7 Q250.1,400.6 250.1,399.0 Q250.1,397.3 249.8,396.1 Q249.5,394.9 249.1,394.5 Q248.7,394.2 249.0,394.4 Q249.3,394.7 250.4,392.7 Q251.6,390.7 251.3,388.4 Q251.0,386.2 252.2,381.6 Q253.4,377.0 260.0,355.6 Q266.5,334.2 269.4,329.7 Q272.3,325.2 274.8,323.1 Q277.2,321.0 276.8,319.0 Q276.4,317.1 276.5,315.3 Q276.6,313.5 278.4,312.3 Q280.2,311.0 284.1,307.8 Q287.9,304.7 290.5,300.2 Q293.0,295.7 295.4,291.8 Q297.7,287.9 298.0,284.9 Q298.3,281.9 301.3,273.3 Q304.3,264.8 311.4,255.2 Q318.5,245.6 321.2,239.9 Q324.0,234.2 327.2,227.5 Q330.5,220.8 341.0,218.1 Q351.5,215.4 360.1,212.3 Q368.7,209.2 369.7,207.5 Q370.6,205.8 372.4,202.9 Q374.2,200.0 374.1,196.6 Q374.0,193.2 374.0,192.0 Q374.0,190.8 373.8,187.6 Q373.7,184.4 375.7,184.0 Q377.8,183.6 379.8,185.5 Q381.7,187.4 381.1,186.9 Q380.5,186.4 380.9,186.3 Q381.3,186.1 383.1,186.5 Q384.9,186.8 386.7,185.4 Q388.6,183.9 388.9,180.5 Q389.2,177.1 390.5,174.6 Q391.7,172.0 400.8,169.0 Q409.8,166.0 414.1,161.8 Q418.3,157.5 423.4,147.4 Q428.5,137.3 430.8,127.3 Q433.2,117.3 433.6,111.9 Q434.0,106.5 433.4,107.0 Q432.8,107.5 432.3,105.6 Q431.8,103.8 431.8,102.7 Q431.7,101.7 431.4,100.6 Q431.1,99.5 432.3,89.4 Q433.6,79.3 434.2,77.0 Q434.8,74.8 435.1,73.4 Q435.4,72.0 435.5,68.8 Q435.6,65.6 437.4,63.1 Q439.3,60.7 440.0,57.3 Q440.7,53.8 443.9,51.6 L447.1,49.3" fill="none" stroke="#4E7D96" stroke-width="7" stroke-linecap="round" opacity=".28"/>
-<path d="M171.1,1126.6 Q171.1,1126.6 169.2,1125.3 Q167.2,1124.0 166.0,1123.4 Q164.8,1122.9 163.8,1120.5 Q162.8,1118.2 161.5,1116.7 Q160.2,1115.1 161.7,1111.8 Q163.1,1108.4 163.5,1100.3 Q163.8,1092.1 164.8,1081.4 Q165.7,1070.7 164.1,1066.4 Q162.5,1062.0 162.7,1057.7 Q163.0,1053.5 158.7,1047.3 Q154.4,1041.1 147.7,1034.2 Q140.9,1027.3 139.8,1025.1 Q138.7,1022.9 134.6,1018.6 Q130.5,1014.4 132.0,1006.3 Q133.4,998.3 133.4,989.8 Q133.4,981.3 134.0,975.7 Q134.5,970.0 133.9,961.8 Q133.4,953.6 134.5,948.8 Q135.5,944.1 136.6,936.1 Q137.7,928.0 138.6,916.9 Q139.5,905.8 140.9,899.2 Q142.4,892.6 145.3,876.6 Q148.3,860.7 148.5,845.4 Q148.7,830.2 147.0,822.6 Q145.4,815.1 142.8,805.4 Q140.3,795.6 139.3,790.9 Q138.3,786.3 138.3,781.7 Q138.3,777.2 137.7,773.4 Q137.1,769.7 137.0,765.9 Q136.9,762.2 138.9,759.4 Q140.9,756.7 142.6,753.3 Q144.3,750.0 151.9,743.4 Q159.4,736.7 160.5,733.1 Q161.6,729.5 160.7,726.8 Q159.8,724.1 158.8,721.6 Q157.8,719.1 158.9,713.1 Q160.1,707.1 159.7,704.0 Q159.3,700.9 161.8,697.3 Q164.4,693.7 164.9,689.0 Q165.4,684.3 166.1,683.1 Q166.8,682.0 167.5,679.4 Q168.1,676.9 166.9,670.4 Q165.6,663.8 165.3,662.7 Q165.0,661.6 160.9,658.0 Q156.9,654.5 155.1,653.4 Q153.3,652.2 153.0,648.0 Q152.8,643.7 151.8,640.4 Q150.7,637.1 151.2,633.5 Q151.7,629.9 150.0,628.5 Q148.3,627.2 145.5,624.3 Q142.8,621.4 143.4,617.2 Q144.0,613.1 143.8,611.6 Q143.6,610.2 144.0,607.4 Q144.4,604.5 145.3,600.4 Q146.2,596.3 147.7,590.5 Q149.1,584.7 151.5,575.5 Q153.9,566.3 156.7,559.6 Q159.5,552.8 160.8,540.2 Q162.1,527.5 164.7,520.7 Q167.3,513.8 173.9,503.5 Q180.5,493.1 183.5,490.8 Q186.6,488.5 187.2,488.8 Q187.8,489.2 189.9,490.8 Q192.0,492.4 194.4,490.3 Q196.9,488.3 196.0,484.5 Q195.0,480.8 199.9,476.6 Q204.9,472.5 206.8,468.6 Q208.6,464.8 213.7,464.0 Q218.8,463.3 223.0,462.2 Q227.2,461.1 228.9,461.5 Q230.6,461.9 233.1,457.9 Q235.7,453.9 237.0,447.9 Q238.4,442.0 243.3,435.1 Q248.3,428.2 250.3,421.0 Q252.3,413.7 253.1,411.1 Q253.9,408.4 252.6,405.5 Q251.2,402.7 250.7,401.7 Q250.1,400.6 250.1,399.0 Q250.1,397.3 249.8,396.1 Q249.5,394.9 249.1,394.5 Q248.7,394.2 249.0,394.4 Q249.3,394.7 250.4,392.7 Q251.6,390.7 251.3,388.4 Q251.0,386.2 252.2,381.6 Q253.4,377.0 260.0,355.6 Q266.5,334.2 269.4,329.7 Q272.3,325.2 274.8,323.1 Q277.2,321.0 276.8,319.0 Q276.4,317.1 276.5,315.3 Q276.6,313.5 278.4,312.3 Q280.2,311.0 284.1,307.8 Q287.9,304.7 290.5,300.2 Q293.0,295.7 295.4,291.8 Q297.7,287.9 298.0,284.9 Q298.3,281.9 301.3,273.3 Q304.3,264.8 311.4,255.2 Q318.5,245.6 321.2,239.9 Q324.0,234.2 327.2,227.5 Q330.5,220.8 341.0,218.1 Q351.5,215.4 360.1,212.3 Q368.7,209.2 369.7,207.5 Q370.6,205.8 372.4,202.9 Q374.2,200.0 374.1,196.6 Q374.0,193.2 374.0,192.0 Q374.0,190.8 373.8,187.6 Q373.7,184.4 375.7,184.0 Q377.8,183.6 379.8,185.5 Q381.7,187.4 381.1,186.9 Q380.5,186.4 380.9,186.3 Q381.3,186.1 383.1,186.5 Q384.9,186.8 386.7,185.4 Q388.6,183.9 388.9,180.5 Q389.2,177.1 390.5,174.6 Q391.7,172.0 400.8,169.0 Q409.8,166.0 414.1,161.8 Q418.3,157.5 423.4,147.4 Q428.5,137.3 430.8,127.3 Q433.2,117.3 433.6,111.9 Q434.0,106.5 433.4,107.0 Q432.8,107.5 432.3,105.6 Q431.8,103.8 431.8,102.7 Q431.7,101.7 431.4,100.6 Q431.1,99.5 432.3,89.4 Q433.6,79.3 434.2,77.0 Q434.8,74.8 435.1,73.4 Q435.4,72.0 435.5,68.8 Q435.6,65.6 437.4,63.1 Q439.3,60.7 440.0,57.3 Q440.7,53.8 443.9,51.6 L447.1,49.3" fill="none" stroke="#4E7D96" stroke-width="2.6" stroke-linecap="round"/>
-</g>
-<path d="M170,560 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M174,567 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M150,640 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M154,647 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M140,820 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M144,827 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M390,240 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M394,247 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M420,170 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M424,177 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M160,905 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M164,912 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M360,300 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<path d="M364,307 q3,-3 6,0 q3,3 6,0 q3,-3 6,0" fill="none" stroke="#2E3B32" stroke-width=".8" opacity=".5"/>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M120,520 l-3,-8"/><path d="M120,520 l0,-9"/><path d="M120,520 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M200,470 l-3,-8"/><path d="M200,470 l0,-9"/><path d="M200,470 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M110,700 l-3,-8"/><path d="M110,700 l0,-9"/><path d="M110,700 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M195,760 l-3,-8"/><path d="M195,760 l0,-9"/><path d="M195,760 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M210,880 l-3,-8"/><path d="M210,880 l0,-9"/><path d="M210,880 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M120,980 l-3,-8"/><path d="M120,980 l0,-9"/><path d="M120,980 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M340,340 l-3,-8"/><path d="M340,340 l0,-9"/><path d="M340,340 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M300,420 l-3,-8"/><path d="M300,420 l0,-9"/><path d="M300,420 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M460,210 l-3,-8"/><path d="M460,210 l0,-9"/><path d="M460,210 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M350,140 l-3,-8"/><path d="M350,140 l0,-9"/><path d="M350,140 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M250,300 l-3,-8"/><path d="M250,300 l0,-9"/><path d="M250,300 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M180,380 l-3,-8"/><path d="M180,380 l0,-9"/><path d="M180,380 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M430,300 l-3,-8"/><path d="M430,300 l0,-9"/><path d="M430,300 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M100,600 l-3,-8"/><path d="M100,600 l0,-9"/><path d="M100,600 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M220,1000 l-3,-8"/><path d="M220,1000 l0,-9"/><path d="M220,1000 l3,-8"/></g>
-<g stroke="#8A6F4B" stroke-width=".9" opacity=".65" fill="none"><path d="M300,950 l-3,-8"/><path d="M300,950 l0,-9"/><path d="M300,950 l3,-8"/></g>
-<g>
-<path d="M380,300 C388,272 390,252 386,222" fill="none" stroke="#C9A45C" stroke-width="2.4" stroke-dasharray="7 6" stroke-linecap="round"/>
-<text x="160" y="250" fill="#8A6F4B" font-size="10.5" letter-spacing="1.5">THE HONEY HOLE</text>
-<text x="160" y="265" fill="#B5432C" font-size="10.5" letter-spacing="1">8 BROWNS · SAT PM · ONE WITNESS (BOVINE)</text>
-</g>
-<g filter="url(#rough)"><rect x="134.8" y="956.0" width="9" height="9" fill="#B5432C" stroke="#2E3B32" stroke-width="1.3"/><path d="M132.8,956.0 L139.3,950.0 L145.8,956.0" fill="none" stroke="#2E3B32" stroke-width="1.3"/></g>
-<text x="153.3" y="964.5" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">BUZZ'S FLY SHOP</text>
-<text x="153.3" y="977.5" fill="#B5432C" font-size="9.5" letter-spacing="1" font-style="italic">CLOSED. BUZZ ABSENT. OMEN IGNORED.</text>
-<text x="136.8" y="939.8" fill="#4E7D96" font-size="11">≋</text>
-<text x="158.8" y="940.8" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">BETTY'S RIFFLE *</text>
-<text x="127.6" y="999.2" fill="#4E7D96" font-size="11">≋</text>
-<text x="149.6" y="1000.2" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">PHD POOL *</text>
-<path d="M105.0,1025.5 L114.1,1026.3 L124.1,1025.8 L132.8,1026.9 L141.5,1025.6 L148.7,1025.4 L157.3,1025.3" stroke="#8A6F4B" stroke-width="1.4" stroke-dasharray="5 4" fill="none"/>
-<text x="145.9" y="1029.9" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">ARMSTRONG BORDER *</text>
-<text x="151.6" y="687.1" fill="#4E7D96" font-size="11">≋</text>
-<text x="173.6" y="698.1" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">THE NARROWS (CULVERT) *</text>
-<circle cx="161.5" cy="675.1" r="3.4" fill="none" stroke="#2E3B32" stroke-width="1.2"/><circle cx="161.5" cy="675.1" r="1" fill="#2E3B32"/>
-<text x="175.5" y="669.1" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">PICNIC TABLE PULLOUT</text>
-<g filter="url(#rough)"><rect x="158.8" y="620.1" width="9" height="9" fill="#EFE7D8" stroke="#2E3B32" stroke-width="1.3"/><path d="M156.8,620.1 L163.3,614.1 L169.8,620.1" fill="none" stroke="#2E3B32" stroke-width="1.3"/></g>
-<text x="177.3" y="628.6" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">ANGLER'S HUT *</text>
-<ellipse cx="255.9" cy="357.0" rx="13" ry="8" fill="#4E7D96" opacity=".3" stroke="#4E7D96" stroke-width="1.2" filter="url(#rough)"/>
-<text x="247.9" y="347.0" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="end">DICK'S POND</text>
-<g filter="url(#rough)"><rect x="288.8" y="330.2" width="12" height="12" fill="#EFE7D8" stroke="#2E3B32" stroke-width="1.3"/><path d="M286.8,330.2 L294.8,324.2 L302.8,330.2" fill="none" stroke="#2E3B32" stroke-width="1.3"/></g>
-<text x="306.8" y="340.2" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="start">THE WHITE HOUSE</text>
-<g filter="url(#rough)"><rect x="414.4" y="159.3" width="9" height="9" fill="#EFE7D8" stroke="#2E3B32" stroke-width="1.3"/><path d="M412.4,159.3 L418.9,153.3 L425.4,159.3" fill="none" stroke="#2E3B32" stroke-width="1.3"/></g>
-<text x="348.9" y="151.8" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="end">EVA'S HUT *</text>
-<path d="M439.4,99.2 L448.5,98.4 L456.8,99.0 L464.4,98.7 L474.7,99.0 L483.0,98.4 L490.6,99.0" stroke="#8A6F4B" stroke-width="1.4" stroke-dasharray="5 4" fill="none"/>
-<text x="315.2" y="116.4" fill="#2E3B32" font-size="10.5" letter-spacing="1" text-anchor="end">YELLOWSTONE CONFLUENCE *</text>
-<g class="pin-g" data-ids="m01,m28,m29">
-<circle cx="139.4" cy="959.6" r="13" fill="rgba(201,164,92,.14)" stroke="#8A6F4B" stroke-width="1.6"/>
-<circle cx="139.4" cy="959.6" r="6.5" fill="#8A6F4B" stroke="#2E3B32" stroke-width="1"/>
-<text x="139.4" y="963.0" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">1</text>
-</g>
-<g class="pin-g" data-ids="m03,m04,m05,m06,m07,m08">
-<circle cx="147.8" cy="601.8" r="13" fill="rgba(201,164,92,.14)" stroke="#C9A45C" stroke-width="1.6"/>
-<circle cx="147.8" cy="601.8" r="6.5" fill="#C9A45C" stroke="#2E3B32" stroke-width="1"/>
-<text x="147.8" y="605.1999999999999" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">2</text>
-<text x="163.8" y="591.8" fill="#8A6F4B" font-size="9">×6</text>
-</g>
-<g class="pin-g" data-ids="m09,m10">
-<circle cx="161.9" cy="697.1" r="13" fill="rgba(201,164,92,.14)" stroke="#C9A45C" stroke-width="1.6"/>
-<circle cx="161.9" cy="697.1" r="6.5" fill="#C9A45C" stroke="#2E3B32" stroke-width="1"/>
-<text x="161.9" y="700.5" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">3</text>
-<text x="177.9" y="687.1" fill="#8A6F4B" font-size="9">×2</text>
-</g>
-<g class="pin-g" data-ids="m11">
-<circle cx="158.2" cy="739.9" r="13" fill="rgba(201,164,92,.14)" stroke="#C9A45C" stroke-width="1.6"/>
-<circle cx="158.2" cy="739.9" r="6.5" fill="#C9A45C" stroke="#2E3B32" stroke-width="1"/>
-<text x="158.2" y="743.3" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">4</text>
-</g>
-<g class="pin-g" data-ids="m12">
-<circle cx="138.6" cy="770.6" r="13" fill="rgba(201,164,92,.14)" stroke="#C9A45C" stroke-width="1.6"/>
-<circle cx="138.6" cy="770.6" r="6.5" fill="#C9A45C" stroke="#2E3B32" stroke-width="1"/>
-<text x="138.6" y="774.0" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">5</text>
-</g>
-<g class="pin-g" data-ids="m13,m14">
-<circle cx="161.9" cy="674.3" r="13" fill="rgba(201,164,92,.14)" stroke="#C9A45C" stroke-width="1.6"/>
-<circle cx="161.9" cy="674.3" r="6.5" fill="#C9A45C" stroke="#2E3B32" stroke-width="1"/>
-<text x="161.9" y="677.6999999999999" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">6</text>
-<text x="177.9" y="664.3" fill="#8A6F4B" font-size="9">×2</text>
-</g>
-<g class="pin-g" data-ids="m15,m16,m17">
-<circle cx="430.1" cy="132.6" r="13" fill="rgba(201,164,92,.14)" stroke="#B5432C" stroke-width="1.6"/>
-<circle cx="430.1" cy="132.6" r="6.5" fill="#B5432C" stroke="#2E3B32" stroke-width="1"/>
-<text x="430.1" y="136.0" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">7</text>
-<text x="446.1" y="122.6" fill="#8A6F4B" font-size="9">×3</text>
-</g>
-<g class="pin-g" data-ids="m18,m19,m20">
-<circle cx="379.6" cy="189.8" r="13" fill="rgba(201,164,92,.14)" stroke="#B5432C" stroke-width="1.6"/>
-<circle cx="379.6" cy="189.8" r="6.5" fill="#B5432C" stroke="#2E3B32" stroke-width="1"/>
-<text x="379.6" y="193.20000000000002" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">8</text>
-<text x="395.6" y="179.8" fill="#8A6F4B" font-size="9">×3</text>
-</g>
-<g class="pin-g" data-ids="m32"><circle cx="388" cy="239" r="13" fill="rgba(201,164,92,.14)" stroke="#C9A45C" stroke-width="1.6"/><circle cx="388" cy="239" r="6.5" fill="#C9A45C" stroke="#2E3B32" stroke-width="1"/><text x="388" y="242.4" fill="#EFE7D8" font-size="9" font-weight="600" text-anchor="middle">9</text></g><g transform="translate(472,74)">
-<circle r="20" fill="none" stroke="#2E3B32" stroke-width="1"/>
-<path d="M0,-26 L5,0 L0,8 L-5,0 Z" fill="#2E3B32"/>
-<text y="-32" text-anchor="middle" fill="#2E3B32" font-size="12" font-weight="600">N</text>
-<text y="42" text-anchor="middle" fill="#8A6F4B" font-size="8.5" font-style="italic">north-ish</text>
-</g>
-<g transform="translate(48,1096)">
-<path d="M0,0 L86,0" stroke="#2E3B32" stroke-width="1.4"/>
-<path d="M0,-4 L0,4 M86,-4 L86,4 M43,-3 L43,3" stroke="#2E3B32" stroke-width="1.2"/>
-<text x="43" y="16" text-anchor="middle" fill="#2E3B32" font-size="9" letter-spacing="1">≈ ½ MILE</text>
-<text x="43" y="30" text-anchor="middle" fill="#8A6F4B" font-size="8" font-style="italic">geometry honest · decorations argued</text>
-</g>
-<text x="280" y="1134" text-anchor="middle" fill="#8A6F4B" font-size="9" letter-spacing="2">* POSITION APPROXIMATE — NO PUBLISHED SURVEY. THE FISH KNOW WHERE.</text>
-</svg></div>
-  <div class="map-key" id="mapkey"><b>1</b> — FRI 14:51–14:55 · 3 photos · the closed shop &amp; the sign<br><b>2</b> — SAT 08:47–10:01 · 6 photos · cutthroat, rainbow<br><b>3</b> — SAT 10:49–11:40 · 2 photos · brown<br><b>4</b> — SAT 12:01 · 1 photo · scenes<br><b>5</b> — SAT 12:14 · 1 photo · rainbow<br><b>6</b> — SAT 13:30–13:31 · 2 photos · scenes<br><b>7</b> — SUN 09:59–10:09 · 3 photos · cutbow, rainbow<br><b>8</b> — SUN 12:10–13:10 · 3 photos · brown, cutthroat<br><b>9</b> — SAT 20:52 · 1 photo · the cow, the lane, the evening water<br><b>◌</b> — gold dashed reach: the Saturday-evening honey hole — no photos exist</div>
+  <div class="dep-controls">
+    <button class="on" data-view="classic">The Classic Map</button>
+    <button data-view="sat">Satellite</button>
+  </div>
+  <div class="dep-wrap" id="depclassic">
+    <img class="depmap-img" src="img/depuy_map.jpg" alt="Classic hand-drawn map of DePuy Spring Creek by Eva DePuy and Betty Jo Smith">
+  </div>
+  <div class="dep-wrap" id="depsat" style="display:none"><div id="depmap"></div></div>
+  <div class="dep-credit">CLASSIC MAP © DEPUY SPRING CREEK — EVA DEPUY &amp; BETTY JO SMITH, YOUR HOSTESSES. GEOGRAPHICALLY DEBATABLE, SENTIMENTALLY EXACT.</div>
+  <div class="map-key" id="mapkey"><b>1</b> — FRI 14:51–14:55 · 3 photos · the closed shop &amp; the sign<br><b>2</b> — SAT 08:47–10:01 · 6 photos · cutthroat, rainbow<br><b>3</b> — SAT 10:49–11:40 · 2 photos · brown<br><b>4</b> — SAT 12:01 · 1 photo · scenes<br><b>5</b> — SAT 12:14 · 1 photo · rainbow<br><b>6</b> — SAT 13:30–13:31 · 2 photos · scenes<br><b>7</b> — SUN 09:59–10:09 · 3 photos · cutbow, rainbow<br><b>8</b> — SUN 12:10–13:10 · 3 photos · brown, cutthroat<br><b>9</b> — SAT 20:52 · 1 photo · the cow, the lane, the evening honey hole<br>PIN COLORS — SEPIA FRI · GOLD SAT · RUST SUN · SAME NUMBERS ON BOTH VIEWS</div>
 </section>
 
 <!-- ============ SUNDAY ============ -->
@@ -844,7 +738,7 @@ table.tally .n{font-family:var(--mono);color:var(--ink)}
       <span class="who">— THIS IS THAT.</span>
     </div>
     <div class="built">
-      BUILT FROM 26 GEOTAGGED PHOTOGRAPHS · TWO USGS GAUGES (06192500, 06066500) · THREE DEBRIEFS RECORDED IN A RENTAL CAR · ONE GOOGLE CALENDAR · CREEK &amp; RIVER GEOMETRY © OPENSTREETMAP CONTRIBUTORS (ODbL) · SATELLITE IMAGERY: ESRI WORLD IMAGERY · BEAT MAP DRAWN FRESH, WITH A RESPECTFUL NOD TO ROD WALINCHUS'S CLASSIC DEPUY HANDOUT · NO FISH COUNTS WERE HARMONIZED IN THE MAKING OF THIS SITE<br><br>
+      BUILT FROM 26 GEOTAGGED PHOTOGRAPHS · TWO USGS GAUGES (06192500, 06066500) · THREE DEBRIEFS RECORDED IN A RENTAL CAR · ONE GOOGLE CALENDAR · CREEK &amp; RIVER GEOMETRY © OPENSTREETMAP CONTRIBUTORS (ODbL) · SATELLITE IMAGERY: ESRI WORLD IMAGERY · CLASSIC DEPUY MAP REPRODUCED AS THE ARTIFACT WE NAVIGATED BY — THANK YOU EVA DEPUY & BETTY JO SMITH · NO FISH COUNTS WERE HARMONIZED IN THE MAKING OF THIS SITE<br><br>
       DEPUY'S SPRING CREEK: FLY FISHING AND CATCH-AND-RELEASE ONLY · THANKS TO BETTY, DARYL &amp; THERESA SMITH FOR THE CREEK, TO BUZZ BASINI FOR THE SHOP (SORRY WE MISSED YOU), TO JAMIE FOR THE RATIO, AND TO THE TROUT SHOP, CRAIG MT, FOR THE BEDS<br><br>
       <a href="#top">BACK TO THE TOP ↑</a>
     </div>
@@ -879,10 +773,63 @@ document.querySelectorAll('[data-m]').forEach(el => el.addEventListener('click',
 const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target);} }), {threshold:.18});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ============ BEAT MAP PIN CLICKS ============ */
-document.querySelectorAll('.pin-g').forEach(g => g.addEventListener('click', () => {
-  const ids = g.dataset.ids.split(',');
-  openLB(ids[0]);
+/* ============ DEPUYS DUAL MAP ============ */
+const DEP_CLUSTERS = [
+  {n:1, ids:['m01','m28','m29'], lat:45.55462, lon:-110.59049, day:'Fri', cx:84.6, cy:32.5},
+  {n:2, ids:['m03','m04','m05','m06','m07','m08'], lat:45.56678, lon:-110.59013, day:'Sat', cx:58.0, cy:42.9},
+  {n:3, ids:['m09','m10'], lat:45.56356, lon:-110.58938, day:'Sat', cx:65.2, cy:41.0},
+  {n:4, ids:['m11'], lat:45.56212, lon:-110.58958, day:'Sat', cx:68.3, cy:39.9},
+  {n:5, ids:['m12'], lat:45.56109, lon:-110.59064, day:'Sat', cx:70.6, cy:39.4},
+  {n:6, ids:['m13','m14'], lat:45.56433, lon:-110.58938, day:'Sat', cx:62.8, cy:43.6},
+  {n:7, ids:['m15','m16','m17'], lat:45.58255, lon:-110.57489, day:'Sun', cx:21.8, cy:31.6},
+  {n:8, ids:['m18','m19','m20'], lat:45.58062, lon:-110.57762, day:'Sun', cx:26.2, cy:33.6},
+  {n:9, ids:['m32'], lat:45.57896, lon:-110.57716, day:'Sat', cx:30.6, cy:34.6},
+];
+const DAYC = {Fri:'#8A6F4B', Sat:'#C9A45C', Sun:'#B5432C'};
+const depClassic = document.getElementById('depclassic');
+DEP_CLUSTERS.forEach(c => {
+  const el = document.createElement('div');
+  el.className = 'dep-pin';
+  el.style.left = c.cx + '%'; el.style.top = c.cy + '%';
+  el.style.background = DAYC[c.day];
+  el.textContent = c.n;
+  if (c.ids.length > 1) el.innerHTML = c.n + '<span class="ct">×' + c.ids.length + '</span>';
+  el.addEventListener('click', () => openLB(c.ids[0]));
+  depClassic.appendChild(el);
+});
+let depMap = null;
+function initDepMap(){
+  if (depMap) { setTimeout(() => depMap.invalidateSize(), 50); return; }
+  depMap = L.map('depmap', {scrollWheelZoom:false});
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 18, attribution: 'Imagery © Esri — Source: Esri, Maxar, Earthstar Geographics'
+  }).addTo(depMap);
+  const FEATS = [
+    {name:"BUZZ'S FLY SHOP + FISHERMAN'S HUT", lat:45.5547, lon:-110.5906},
+    {name:'THE WHITE HOUSE (CHECK-IN)', lat:45.5757, lon:-110.5822},
+    {name:"DICK'S POND", lat:45.5750, lon:-110.5843},
+  ];
+  FEATS.forEach(f => L.marker([f.lat, f.lon], {icon: L.divIcon({className:'bench-pin town', html:'<span class="tri"></span>', iconSize:[0,0]})})
+    .addTo(depMap).bindPopup('<b>' + f.name + '</b>'));
+  DEP_CLUSTERS.forEach(c => {
+    const mk = L.marker([c.lat, c.lon], {icon: L.divIcon({className:'bench-pin' + (c.day==='Sun' ? ' d2' : c.day==='Fri' ? ' d0' : ''), html:'<span class="tri"></span>', iconSize:[0,0]})}).addTo(depMap);
+    const m = byId[c.ids[0]];
+    mk.bindPopup('<img src="img/thumb/' + m.web + '" data-mm="' + m.id + '"><b>Pin ' + c.n + '</b> · ' + c.ids.length + ' photo' + (c.ids.length>1?'s':'') + '<br>' + m.caption + '<span class="meta">' + m.day.toUpperCase() + ' · ' + m.time + '</span>', {maxWidth:240});
+  });
+  depMap.fitBounds([[45.550, -110.599], [45.586, -110.566]], {padding:[14,14]});
+  depMap.on('popupopen', e => {
+    const img = e.popup.getElement().querySelector('img[data-mm]');
+    if (img) img.addEventListener('click', () => openLB(img.dataset.mm));
+  });
+  setTimeout(() => { depMap.invalidateSize(); depMap.fitBounds([[45.550, -110.599], [45.586, -110.566]], {padding:[14,14]}); }, 80);
+}
+document.querySelectorAll('.dep-controls button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.dep-controls button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  const sat = b.dataset.view === 'sat';
+  document.getElementById('depclassic').style.display = sat ? 'none' : '';
+  document.getElementById('depsat').style.display = sat ? '' : 'none';
+  if (sat) initDepMap();
 }));
 
 /* ============ MISSOURI MAP ============ */
