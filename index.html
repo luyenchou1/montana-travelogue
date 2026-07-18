@@ -274,7 +274,14 @@ table.tally th{font-family:Archivo,sans-serif;font-size:.66rem;letter-spacing:.1
   text-transform:uppercase;text-align:left;color:var(--sepia);
   border-bottom:2px solid var(--ink);padding:8px 6px}
 table.tally td{border-bottom:1px solid var(--sepia-lt);padding:10px 6px;vertical-align:top}
-table.tally .strokes{font-family:var(--mono);letter-spacing:2px;color:var(--rust);white-space:nowrap}
+table.tally .strokes{white-space:nowrap}
+.tg{display:inline-flex;position:relative;margin-right:10px;vertical-align:middle;padding:1px 0}
+.tg i{display:inline-block;width:2px;height:15px;background:var(--rust);margin-right:3.5px;border-radius:1px}
+.tg i:last-child{margin-right:0}
+.tg b{position:absolute;left:-2px;right:-2px;top:50%;height:2px;background:var(--rust);
+  transform:rotate(-28deg);border-radius:1px}
+.tg.dark i,.tg.dark b{background:var(--ink)}
+.strokes .none{font-family:var(--mono);color:var(--sepia)}
 table.tally .n{font-family:var(--mono);color:var(--ink)}
 .fn-list{font-family:var(--mono);font-size:.7rem;color:var(--sepia);line-height:2;margin-top:16px}
 
@@ -1084,18 +1091,20 @@ const TALLY = {
   ],
 };
 const tEl = document.getElementById('tallytable');
-function strokes(n){
+function strokes(n, dark){
+  if (!n) return '<span class="none">—</span>';
+  const cls = dark ? 'tg dark' : 'tg';
   let s = '';
-  for(let i=0;i<Math.floor(n/5);i++) s += '𝍸 ';
-  s += '𝍷'.repeat(n%5);
-  return s || '—';
+  for(let i=0;i<Math.floor(n/5);i++) s += '<span class="' + cls + '"><i></i><i></i><i></i><i></i><b></b></span>';
+  if (n % 5) s += '<span class="' + cls + '">' + '<i></i>'.repeat(n % 5) + '</span>';
+  return s;
 }
 function renderTally(who){
   const rows = TALLY[who];
   const total = rows.reduce((a,r) => a+r.n, 0);
   tEl.innerHTML = '<tr><th>Water</th><th>Tally</th><th style="text-align:right">~N</th><th>Note</th></tr>'
     + rows.map(r => '<tr><td>' + r.water + '</td><td class="strokes">' + strokes(r.n) + '</td><td class="n" style="text-align:right">~' + r.n + '</td><td class="mono" style="font-size:.68rem">' + r.note + '</td></tr>').join('')
-    + '<tr><td style="font-weight:600">Trip total</td><td class="strokes" style="color:var(--ink)">' + strokes(total) + '</td><td class="n" style="text-align:right;font-weight:600">~' + total + '</td><td class="mono" style="font-size:.68rem">worked hard for every one</td></tr>';
+    + '<tr><td style="font-weight:600">Trip total</td><td class="strokes">' + strokes(total, true) + '</td><td class="n" style="text-align:right;font-weight:600">~' + total + '</td><td class="mono" style="font-size:.68rem">worked hard for every one</td></tr>';
 }
 renderTally('luyen');
 document.querySelectorAll('.tally-toggle button').forEach(b => b.addEventListener('click', () => {
