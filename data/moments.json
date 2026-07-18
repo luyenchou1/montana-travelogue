@@ -636,6 +636,29 @@
    "hero_quality": 4,
    "notable": "The rod blank is legible \u2014 'ALBRIGHT EXR-FW / 590-4 / #5 Line 9'0\" / 2.8 oz' \u2014 a concrete gear fact for the site, and it visually ties this fish to Luyen via the matching reel in IMG_1826. Tiny purple speedwell flowers in the weeds are a lovely detail.",
    "web": "img_1831.jpg"
+  },
+  {
+   "id": "m27",
+   "photo": "Z63_5197.jpg",
+   "web": "z63_5197.jpg",
+   "ts_utc": "2026-07-14 15:52:11 +0000",
+   "ts_mdt": "2026-07-14 09:52:11",
+   "day": "Tue Jul 14",
+   "date": "Tue Jul 14",
+   "time": "9:52:11 AM",
+   "lat": 47.01846666666667,
+   "lon": -112.0119138833333,
+   "camera": "NIKON Z6_3",
+   "photographer": null,
+   "place": "missouri_holter",
+   "subject_kind": "fish-catch",
+   "species": "rainbow",
+   "species_confidence": "high",
+   "angler": "thorne",
+   "is_catch": true,
+   "hero_quality": 5,
+   "caption": "Thorne at the Wolf Creek bridge with a deep-bodied Missouri rainbow, held straight at the lens \u2014 wool patch loaded, WTF cap on duty. Shot on a real camera, no less.",
+   "notable": "Third camera in the set: a Nikon Z6 III. Tuesday 9:52 AM \u2014 slots between the morning riser bank and the midday island braid."
   }
  ],
  "_analysis": "species/angler/captions merged 2026-07-16 from 6-agent visual pass cross-referenced against transcripts. Attribution basis in each agent report; anchor-calibrated."
