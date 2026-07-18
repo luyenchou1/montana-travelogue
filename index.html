@@ -973,7 +973,7 @@ const MO_CLUSTERS = [
 ];
 const MODAYC = {Sun:'#B5432C', Mon:'#C9A45C', Tue:'#6FA0A6'};
 const MO_BOUNDS = [[46.985, -112.03], [47.085, -111.945]];
-const map = L.map('momap', {scrollWheelZoom: false, touchZoom: true});
+const map = L.map('momap', {scrollWheelZoom: false, touchZoom: true, zoomSnap: 0, zoomDelta: 1});
 const moC = document.getElementById('momap');
 moC.addEventListener('wheel', e => {
   if (!(e.ctrlKey || e.metaKey)) return;
