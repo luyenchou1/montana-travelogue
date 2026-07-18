@@ -221,6 +221,12 @@ figcaption .meta{display:block;font-family:var(--mono);font-size:.68rem;color:va
 .leaflet-popup-content{margin:10px 12px;font-size:.82rem;line-height:1.5}
 .leaflet-popup-content .meta{font-family:var(--mono);font-size:.64rem;color:var(--sepia);display:block;margin-top:4px}
 .leaflet-popup-content img{width:100%;margin-bottom:8px;cursor:zoom-in}
+.mo-pin{position:absolute;left:0;top:0}
+.mo-feat{position:absolute;transform:translate(-50%,-130%);font-family:var(--mono);
+  font-size:9px;letter-spacing:.08em;color:#EFE7D8;text-shadow:0 1px 3px rgba(0,0,0,.9);
+  white-space:nowrap;pointer-events:none;text-align:center}
+.mo-feat i{display:block;width:7px;height:7px;border-radius:50%;background:#EFE7D8;
+  border:1.5px solid #142219;margin:0 auto 2px;box-shadow:0 1px 3px rgba(0,0,0,.7)}
 .bench-pin{width:0;height:0}
 .bench-pin .tri{position:absolute;left:-9px;top:-9px;width:0;height:0;
   border-left:9px solid transparent;border-right:9px solid transparent;
@@ -570,11 +576,12 @@ table.tally .n{font-family:var(--mono);color:var(--ink)}
       <div id="momap"></div>
     </div>
     <div class="mo-controls">
-      <button data-day="all" class="on">Both days</button>
-      <button data-day="Mon Jul 13">Mon · Day I</button>
-      <button data-day="Tue Jul 14">Tue · Day II</button>
+      <button data-view="sat" class="on">Satellite</button>
+      <button data-view="topo">USGS Topo</button>
     </div>
-    <div class="mo-note">LAUNCHED AT THE HOLTER DAM RAMP BOTH MORNINGS · "MASSIVE NUMBERS OF BOATS UP AT THE DAM" · GOLD ▲ MONDAY · RUST ▲ TUESDAY · TAP A BENCHMARK FOR THE PHOTOGRAPH</div>
+    <div class="mo-note">LAUNCHED AT THE HOLTER DAM RAMP BOTH MORNINGS · "MASSIVE NUMBERS OF BOATS UP AT THE DAM"<br>
+    <b style="color:#B5432C">10</b> SUN — CRAIG ARRIVAL · <b style="color:#C9A45C">11–13</b> MON — RISER BANK ×2, THE HOPPER-DROPPER CUT, THE EAGLES · <b style="color:#6FA0A6">14–16</b> TUE — SAME BANK PAID, WOLF CREEK BRIDGE, THE INSIDE BRAID<br>
+    TAP A PIN FOR THE PHOTOGRAPHS · PINCH AND DRAG TO EXPLORE</div>
   </div>
 </section>
 
@@ -953,33 +960,40 @@ document.querySelectorAll('.dep-controls button').forEach(b => b.addEventListene
 }));
 
 /* ============ MISSOURI MAP ============ */
-const mo = MOMENTS.filter(m => ['missouri_holter','craig_area'].includes(m.place));
-const map = L.map('momap', {scrollWheelZoom:false, attributionControl:true});
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  maxZoom: 18, attribution: 'Imagery © Esri — Source: Esri, Maxar, Earthstar Geographics'
-}).addTo(map);
-const FEATURES = [
-  {name:'HOLTER DAM — the launch, both mornings', lat:46.99177, lon:-112.00438, kind:'town'},
-  {name:'CRAIG — the Trout Shop · lodging · presumed take-out', lat:47.07439, lon:-111.96333, kind:'town'},
+const MO_CLUSTERS = [
+  {n:10, ids:['m21'], day:'Sun'},
+  {n:11, ids:['m22','m23'], day:'Mon'},
+  {n:12, ids:['m24'], day:'Mon'},
+  {n:13, ids:['m34'], day:'Mon'},
+  {n:14, ids:['m25'], day:'Tue'},
+  {n:15, ids:['m27'], day:'Tue'},
+  {n:16, ids:['m26'], day:'Tue'},
 ];
-const dayClass = d => d === 'Tue Jul 14' ? 'd2' : '';
-let pinLayers = [];
-function draw(day){
-  pinLayers.forEach(l => map.removeLayer(l)); pinLayers = [];
-  FEATURES.forEach(f => {
-    const mk = L.marker([f.lat, f.lon], {icon: L.divIcon({className:'bench-pin town', html:'<span class="tri"></span>', iconSize:[0,0]})}).addTo(map);
-    mk.bindPopup('<b>' + f.name + '</b>');
-    pinLayers.push(mk);
-  });
-  mo.filter(m => day === 'all' || m.day === day).forEach(m => {
-    const mk = L.marker([m.lat, m.lon], {icon: L.divIcon({className:'bench-pin ' + dayClass(m.day), html:'<span class="tri"></span>', iconSize:[0,0]})}).addTo(map);
-    mk.bindPopup('<img src="img/thumb/' + m.web + '" data-mm="' + m.id + '">' + m.caption + '<span class="meta">' + m.day.toUpperCase() + ' · ' + m.time + '</span>', {maxWidth: 240});
-    pinLayers.push(mk);
-  });
-}
+const MODAYC = {Sun:'#B5432C', Mon:'#C9A45C', Tue:'#6FA0A6'};
 const MO_BOUNDS = [[46.985, -112.03], [47.085, -111.945]];
+const map = L.map('momap', {scrollWheelZoom: false});
+const moSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 18, attribution: 'Imagery © Esri — Source: Esri, Maxar, Earthstar Geographics'
+});
+const moTopo = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 16, attribution: 'USGS The National Map'
+});
+moSat.addTo(map);
+[{name:'HOLTER DAM — THE LAUNCH', lat:46.99177, lon:-112.00438},
+ {name:'CRAIG — THE TROUT SHOP', lat:47.07439, lon:-111.96333}].forEach(f => {
+  L.marker([f.lat, f.lon], {interactive: false, icon: L.divIcon({className:'', iconSize:[0,0],
+    html:'<div class="mo-feat"><i></i>' + f.name + '</div>'})}).addTo(map);
+});
+MO_CLUSTERS.forEach(c => {
+  const ms = c.ids.map(id => byId[id]);
+  const lat = ms.reduce((a,m2) => a + m2.lat, 0) / ms.length;
+  const lon = ms.reduce((a,m2) => a + m2.lon, 0) / ms.length;
+  const badge = c.ids.length > 1 ? '<span class="ct">×' + c.ids.length + '</span>' : '';
+  const mk = L.marker([lat, lon], {icon: L.divIcon({className:'', iconSize:[0,0],
+    html:'<div class="dep-pin mo-pin" style="background:' + MODAYC[c.day] + '">' + c.n + badge + '</div>'})}).addTo(map);
+  mk.on('click', () => openLBSet(c.ids, 0));
+});
 map.fitBounds(MO_BOUNDS, {padding:[16,16]});
-draw('all');
 /* Leaflet mis-sizes when initialized offscreen: re-fit on first visibility */
 const ioMap = new IntersectionObserver(es => es.forEach(e => {
   if(e.isIntersecting){
@@ -988,13 +1002,12 @@ const ioMap = new IntersectionObserver(es => es.forEach(e => {
   }
 }), {threshold:.1});
 ioMap.observe(document.getElementById('momap'));
-map.on('popupopen', e => {
-  const img = e.popup.getElement().querySelector('img[data-mm]');
-  if (img) img.addEventListener('click', () => openLB(img.dataset.mm));
-});
 document.querySelectorAll('.mo-controls button').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('.mo-controls button').forEach(x => x.classList.remove('on'));
-  b.classList.add('on'); draw(b.dataset.day);
+  b.classList.add('on');
+  if (b.dataset.view === 'topo'){ map.removeLayer(moSat); moTopo.addTo(map); }
+  else { map.removeLayer(moTopo); moSat.addTo(map); }
+  map.fitBounds(MO_BOUNDS, {padding:[16,16]});
 }));
 
 /* ============ TALLY ============ */
