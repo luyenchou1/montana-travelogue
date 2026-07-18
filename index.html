@@ -157,7 +157,11 @@ figcaption .meta{display:block;font-family:var(--mono);font-size:.68rem;color:va
   background:#EFE7D8;border-radius:6px;padding:0 3px;border:1px solid var(--sepia-lt)}
 .dep-credit{max-width:1000px;margin:8px auto 0;text-align:center;
   font-family:var(--mono);font-size:.66rem;color:var(--sepia);letter-spacing:.06em}
-#depmap{height:64svh;min-height:380px;background:#0c1210;border:1px solid var(--sepia-lt)}
+.dep-feat{position:absolute;transform:translate(-50%,-130%);font-family:var(--mono);
+  font-size:9px;letter-spacing:.08em;color:#EFE7D8;text-shadow:0 1px 3px rgba(0,0,0,.9);
+  white-space:nowrap;pointer-events:none;text-align:center}
+.dep-feat i{display:block;width:7px;height:7px;border-radius:50%;background:#EFE7D8;
+  border:1.5px solid #142219;margin:0 auto 2px;box-shadow:0 1px 3px rgba(0,0,0,.7)}
 
 /* ---------- chart ---------- */
 .chart-wrap{background:var(--bone);border:1px solid var(--sepia-lt);padding:22px 14px 8px;margin:26px 0}
@@ -269,6 +273,14 @@ table.tally .n{font-family:var(--mono);color:var(--ink)}
 #lb img{max-width:min(96vw,1200px);max-height:80svh;object-fit:contain;
   box-shadow:0 30px 80px rgba(0,0,0,.6)}
 #lb .cap{color:var(--bone);font-size:.9rem;max-width:640px;text-align:center;margin-top:16px;line-height:1.5}
+#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  background:rgba(239,231,216,.12);color:var(--bone);border:1px solid rgba(239,231,216,.35);
+  font-size:2rem;line-height:1;width:52px;height:76px;cursor:pointer;border-radius:4px;
+  display:none;align-items:center;justify-content:center;font-family:Georgia,serif}
+#lb-prev{left:10px}#lb-next{right:10px}
+#lb.multi #lb-prev,#lb.multi #lb-next{display:flex}
+#lb-prev:hover,#lb-next:hover{background:rgba(239,231,216,.28)}
+.lb-count{font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.2em;margin-top:12px}
 #lb .cap .meta{font-family:var(--mono);font-size:.66rem;color:var(--gold);display:block;margin-top:6px;letter-spacing:.08em}
 
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
@@ -465,8 +477,10 @@ table.tally .n{font-family:var(--mono);color:var(--ink)}
   <div class="dep-wrap" id="depclassic">
     <img class="depmap-img" src="img/depuy_map.jpg" alt="Classic hand-drawn map of DePuy Spring Creek by Eva DePuy and Betty Jo Smith">
   </div>
-  <div class="dep-wrap" id="depsat" style="display:none"><div id="depmap"></div></div>
-  <div class="dep-credit">CLASSIC MAP © DEPUY SPRING CREEK — EVA DEPUY &amp; BETTY JO SMITH, YOUR HOSTESSES. GEOGRAPHICALLY DEBATABLE, SENTIMENTALLY EXACT.</div>
+  <div class="dep-wrap" id="depsat" style="display:none">
+    <img class="depmap-img" src="img/depuy_sat.jpg" alt="Satellite view of DePuy Spring Creek rotated to match the classic map, north pointing left">
+  </div>
+  <div class="dep-credit">CLASSIC MAP © DEPUY SPRING CREEK — EVA DEPUY &amp; BETTY JO SMITH, YOUR HOSTESSES. GEOGRAPHICALLY DEBATABLE, SENTIMENTALLY EXACT.<br>SATELLITE PLATE ROTATED TO MATCH — NORTH LEFT — IMAGERY © ESRI, MAXAR, EARTHSTAR GEOGRAPHICS. SAME PINS, SAME NUMBERS, BOTH WORLDS.</div>
   <div class="map-key" id="mapkey"><b>1</b> — FRI 14:51–14:55 · 3 photos · the closed shop &amp; the sign<br><b>2</b> — SAT 08:47–10:01 · 6 photos · cutthroat, rainbow<br><b>3</b> — SAT 10:49–11:40 · 2 photos · brown<br><b>4</b> — SAT 12:01 · 1 photo · scenes<br><b>5</b> — SAT 12:14 · 1 photo · rainbow<br><b>6</b> — SAT 13:30–13:31 · 2 photos · scenes<br><b>7</b> — SUN 09:59–10:09 · 3 photos · cutbow, rainbow<br><b>8</b> — SUN 12:10–13:10 · 3 photos · brown, cutthroat<br><b>9</b> — SAT 20:52 · 1 photo · the cow, the lane, the evening honey hole<br>PIN COLORS — SEPIA FRI · GOLD SAT · RUST SUN · SAME NUMBERS ON BOTH VIEWS</div>
 </section>
 
@@ -747,7 +761,10 @@ table.tally .n{font-family:var(--mono);color:var(--ink)}
 
 <!-- ============ LIGHTBOX ============ -->
 <div id="lb" role="dialog" aria-label="photo lightbox">
+  <button id="lb-prev" aria-label="previous photo">&#8249;</button>
   <img id="lb-img" src="" alt="">
+  <button id="lb-next" aria-label="next photo">&#8250;</button>
+  <div class="lb-count" id="lb-count"></div>
   <div class="cap" id="lb-cap"></div>
 </div>
 
@@ -759,14 +776,30 @@ const MOMENTS = [{"id":"m01","web":"img_1584.jpg","day":"Fri Jul 10","time":"14:
 /* ============ LIGHTBOX ============ */
 const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
 const byId = Object.fromEntries(MOMENTS.map(m => [m.id, m]));
-function openLB(id){
-  const m = byId[id]; if(!m) return;
+let lbSet = [], lbIdx = 0;
+function renderLB(){
+  const m = byId[lbSet[lbIdx]]; if(!m) return;
   lbImg.src = 'img/full/' + m.web;
   const coords = (m.lat != null) ? ' · ' + m.lat.toFixed(5) + '°N ' + Math.abs(m.lon).toFixed(5) + '°W' : '';
   lbCap.innerHTML = m.caption + '<span class="meta">' + m.day.toUpperCase() + ' · ' + m.time + coords + (m.species ? ' · ' + m.species.toUpperCase() : '') + (m.angler ? ' · ' + m.angler.toUpperCase() : '') + '</span>';
+  document.getElementById('lb-count').textContent = lbSet.length > 1 ? (lbIdx + 1) + ' / ' + lbSet.length : '';
+  lb.classList.toggle('multi', lbSet.length > 1);
+}
+function openLBSet(ids, i){
+  lbSet = ids; lbIdx = i || 0; renderLB();
   lb.classList.add('open'); document.body.style.overflow = 'hidden';
 }
+function openLB(id){ openLBSet([id], 0); }
+function lbStep(d){ lbIdx = (lbIdx + d + lbSet.length) % lbSet.length; renderLB(); }
 lb.addEventListener('click', () => { lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src=''; });
+document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); lbStep(-1); });
+document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); lbStep(1); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'ArrowLeft') lbStep(-1);
+  if (e.key === 'ArrowRight') lbStep(1);
+  if (e.key === 'Escape') lb.click();
+});
 document.querySelectorAll('[data-m]').forEach(el => el.addEventListener('click', e => { openLB(el.dataset.m); }));
 
 /* ============ SCROLL REVEALS + RISES ============ */
@@ -775,61 +808,50 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 /* ============ DEPUYS DUAL MAP ============ */
 const DEP_CLUSTERS = [
-  {n:1, ids:['m01','m28','m29'], lat:45.55462, lon:-110.59049, day:'Fri', cx:84.6, cy:32.5},
-  {n:2, ids:['m03','m04','m05','m06','m07','m08'], lat:45.56678, lon:-110.59013, day:'Sat', cx:58.0, cy:42.9},
-  {n:3, ids:['m09','m10'], lat:45.56356, lon:-110.58938, day:'Sat', cx:65.2, cy:41.0},
-  {n:4, ids:['m11'], lat:45.56212, lon:-110.58958, day:'Sat', cx:68.3, cy:39.9},
-  {n:5, ids:['m12'], lat:45.56109, lon:-110.59064, day:'Sat', cx:70.6, cy:39.4},
-  {n:6, ids:['m13','m14'], lat:45.56433, lon:-110.58938, day:'Sat', cx:62.8, cy:43.6},
-  {n:7, ids:['m15','m16','m17'], lat:45.58255, lon:-110.57489, day:'Sun', cx:21.8, cy:31.6},
-  {n:8, ids:['m18','m19','m20'], lat:45.58062, lon:-110.57762, day:'Sun', cx:26.2, cy:33.6},
-  {n:9, ids:['m32'], lat:45.57896, lon:-110.57716, day:'Sat', cx:30.6, cy:34.6},
+  {n:1, ids:['m01','m28','m29'], day:'Fri', cx:84.6, cy:32.5, sx:86.17, sy:73.51},
+  {n:2, ids:['m03','m04','m05','m06','m07','m08'], day:'Sat', cx:58.0, cy:42.9, sx:53.31, sy:72.45},
+  {n:3, ids:['m09','m10'], day:'Sat', cx:65.2, cy:41.0, sx:62.01, sy:70.24},
+  {n:4, ids:['m11'], day:'Sat', cx:68.3, cy:39.9, sx:65.9, sy:70.83},
+  {n:5, ids:['m12'], day:'Sat', cx:70.6, cy:39.4, sx:68.69, sy:73.95},
+  {n:6, ids:['m13','m14'], day:'Sat', cx:62.8, cy:43.6, sx:59.93, sy:70.24},
+  {n:7, ids:['m15','m16','m17'], day:'Sun', cx:21.8, cy:31.6, sx:10.68, sy:27.64},
+  {n:8, ids:['m18','m19','m20'], day:'Sun', cx:26.2, cy:33.6, sx:15.9, sy:35.67},
+  {n:9, ids:['m32'], day:'Sat', cx:30.6, cy:34.6, sx:20.38, sy:34.31},
+];
+const DEP_FEATS = [
+  {name:"BUZZ'S SHOP", sx:85.95, sy:78.5},
+  {name:"WHITE HOUSE", sx:29.2, sy:49.13},
+  {name:"DICK'S POND", sx:31.09, sy:55.31},
 ];
 const DAYC = {Fri:'#8A6F4B', Sat:'#C9A45C', Sun:'#B5432C'};
-const depClassic = document.getElementById('depclassic');
-DEP_CLUSTERS.forEach(c => {
-  const el = document.createElement('div');
-  el.className = 'dep-pin';
-  el.style.left = c.cx + '%'; el.style.top = c.cy + '%';
-  el.style.background = DAYC[c.day];
-  el.textContent = c.n;
-  if (c.ids.length > 1) el.innerHTML = c.n + '<span class="ct">×' + c.ids.length + '</span>';
-  el.addEventListener('click', () => openLB(c.ids[0]));
-  depClassic.appendChild(el);
-});
-let depMap = null;
-function initDepMap(){
-  if (depMap) { setTimeout(() => depMap.invalidateSize(), 50); return; }
-  depMap = L.map('depmap', {scrollWheelZoom:false});
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    maxZoom: 18, attribution: 'Imagery © Esri — Source: Esri, Maxar, Earthstar Geographics'
-  }).addTo(depMap);
-  const FEATS = [
-    {name:"BUZZ'S FLY SHOP + FISHERMAN'S HUT", lat:45.5547, lon:-110.5906},
-    {name:'THE WHITE HOUSE (CHECK-IN)', lat:45.5757, lon:-110.5822},
-    {name:"DICK'S POND", lat:45.5750, lon:-110.5843},
-  ];
-  FEATS.forEach(f => L.marker([f.lat, f.lon], {icon: L.divIcon({className:'bench-pin town', html:'<span class="tri"></span>', iconSize:[0,0]})})
-    .addTo(depMap).bindPopup('<b>' + f.name + '</b>'));
+function renderDepPins(container, xKey, yKey){
   DEP_CLUSTERS.forEach(c => {
-    const mk = L.marker([c.lat, c.lon], {icon: L.divIcon({className:'bench-pin' + (c.day==='Sun' ? ' d2' : c.day==='Fri' ? ' d0' : ''), html:'<span class="tri"></span>', iconSize:[0,0]})}).addTo(depMap);
-    const m = byId[c.ids[0]];
-    mk.bindPopup('<img src="img/thumb/' + m.web + '" data-mm="' + m.id + '"><b>Pin ' + c.n + '</b> · ' + c.ids.length + ' photo' + (c.ids.length>1?'s':'') + '<br>' + m.caption + '<span class="meta">' + m.day.toUpperCase() + ' · ' + m.time + '</span>', {maxWidth:240});
+    const el = document.createElement('div');
+    el.className = 'dep-pin';
+    el.style.left = c[xKey] + '%'; el.style.top = c[yKey] + '%';
+    el.style.background = DAYC[c.day];
+    el.textContent = c.n;
+    if (c.ids.length > 1) el.innerHTML = c.n + '<span class="ct">×' + c.ids.length + '</span>';
+    el.addEventListener('click', () => openLBSet(c.ids, 0));
+    container.appendChild(el);
   });
-  depMap.fitBounds([[45.550, -110.599], [45.586, -110.566]], {padding:[14,14]});
-  depMap.on('popupopen', e => {
-    const img = e.popup.getElement().querySelector('img[data-mm]');
-    if (img) img.addEventListener('click', () => openLB(img.dataset.mm));
-  });
-  setTimeout(() => { depMap.invalidateSize(); depMap.fitBounds([[45.550, -110.599], [45.586, -110.566]], {padding:[14,14]}); }, 80);
 }
+renderDepPins(document.getElementById('depclassic'), 'cx', 'cy');
+const depSat = document.getElementById('depsat');
+renderDepPins(depSat, 'sx', 'sy');
+DEP_FEATS.forEach(f => {
+  const el = document.createElement('div');
+  el.className = 'dep-feat';
+  el.style.left = f.sx + '%'; el.style.top = f.sy + '%';
+  el.innerHTML = '<i></i>' + f.name;
+  depSat.appendChild(el);
+});
 document.querySelectorAll('.dep-controls button').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('.dep-controls button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
   const sat = b.dataset.view === 'sat';
   document.getElementById('depclassic').style.display = sat ? 'none' : '';
   document.getElementById('depsat').style.display = sat ? '' : 'none';
-  if (sat) initDepMap();
 }));
 
 /* ============ MISSOURI MAP ============ */
