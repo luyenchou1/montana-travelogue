@@ -979,7 +979,7 @@ moC.addEventListener('wheel', e => {
   if (!(e.ctrlKey || e.metaKey)) return;
   e.preventDefault();
   const r = moC.getBoundingClientRect();
-  map.setZoomAround(L.point(e.clientX - r.left, e.clientY - r.top), map.getZoom() - e.deltaY * 0.01);
+  map.setZoomAround(L.point(e.clientX - r.left, e.clientY - r.top), map.getZoom() - e.deltaY * 0.01, {animate: false});
 }, {passive: false});
 const moSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 18, attribution: 'Imagery © Esri — Source: Esri, Maxar, Earthstar Geographics'
