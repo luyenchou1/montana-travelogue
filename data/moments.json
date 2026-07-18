@@ -785,6 +785,38 @@
    "hero_quality": 4,
    "caption": "Mid-drift, day one: a bald eagle and a juvenile share a ponderosa above the river. The competition, scouting.",
    "notable": "New mid-float location \u2014 fills the gap between the midday cut and the two-island water. Displayed version is Luyen's edited portrait crop (IMG_1729_edited.jpeg), swapped 2026-07-18."
+  },
+  {
+   "id": "m35",
+   "photo": "Chou_Flybox.HEIC",
+   "web": "chou_flybox.jpg",
+   "ts_mdt": "2026-07-18 14:26:18",
+   "day": "Post-trip",
+   "lat": null,
+   "lon": null,
+   "place": "home",
+   "subject_kind": "gear",
+   "species": null,
+   "angler": null,
+   "is_catch": false,
+   "caption": "The arsenal \u2014 several hundred flies made the trip west; one made the story.",
+   "notable": "Shot at home on Long Island post-trip."
+  },
+  {
+   "id": "m36",
+   "photo": "Rusty_spinner.heic",
+   "web": "rusty_spinner.jpg",
+   "ts_mdt": "2026-07-18 14:34:04",
+   "day": "Post-trip",
+   "lat": null,
+   "lon": null,
+   "place": "home",
+   "subject_kind": "gear",
+   "species": null,
+   "angler": null,
+   "is_catch": false,
+   "caption": "The rusty spinner, held in evidence \u2014 hackle blown, one tail standing. Retired with honors.",
+   "notable": "The survivor itself, in forceps."
   }
  ],
  "_analysis": "species/angler/captions merged 2026-07-16 from 6-agent visual pass cross-referenced against transcripts. Attribution basis in each agent report; anchor-calibrated.",
