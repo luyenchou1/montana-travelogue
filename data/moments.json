@@ -606,7 +606,7 @@
    "angler": "luyen",
    "fly": null,
    "is_catch": true,
-   "caption": "Back at Monday's bank on the last morning, and this time it paid: Luyen slips his long-cast Trico rainbow home. \"I love the one I caught in the morning.\"",
+   "caption": "Same bank, twenty-four hours later \u2014 this time it paid. Luyen's rainbow ate a tiny emerger dropper behind a Griffith's gnat at the end of a very long cast.",
    "subject_kind": "fish-catch",
    "species_confidence": "high",
    "hero_quality": 4,
@@ -630,7 +630,7 @@
    "angler": "luyen",
    "fly": null,
    "is_catch": true,
-   "caption": "The last Missouri fish and the one Luyen loved: a big, deep-bodied rainbow from the inside braid of the island, laid beside the five-weight for a moment before going back.",
+   "caption": "The most memorable take of day two: spotted in a drop-off at the head of a riffle on the farthest braid of the islands, fooled with a beadless emerger dropper off a small Griffith's gnat.",
    "subject_kind": "fish-catch",
    "species_confidence": "high",
    "hero_quality": 4,
@@ -657,7 +657,7 @@
    "angler": "thorne",
    "is_catch": true,
    "hero_quality": 5,
-   "caption": "Thorne at the Wolf Creek bridge with a deep-bodied Missouri rainbow, held straight at the lens \u2014 wool patch loaded, WTF cap on duty. Shot on a real camera, no less.",
+   "caption": "Thorne at the Wolf Creek bridge with a deep-bodied Tuesday rainbow \u2014 double nymphs behind a big indicator did the trick. Shot on a real camera, no less.",
    "notable": "Third camera in the set: a Nikon Z6 III. Tuesday 9:52 AM \u2014 slots between the morning riser bank and the midday island braid."
   },
   {
@@ -789,5 +789,6 @@
  ],
  "_analysis": "species/angler/captions merged 2026-07-16 from 6-agent visual pass cross-referenced against transcripts. Attribution basis in each agent report; anchor-calibrated.",
  "_export_shift_note": "Second photo batch (2026-07-17) carries a -2h timestamp shift from export; corrected here. Verified via burst neighbors of anchored originals.",
- "_cycle_ruling": "Cycle confirmed as SUNDAY (day two) per Luyen 2026-07-18, overruling the earlier Saturday reading. Bow = m17 (10:09 rod-in-teeth rainbow)."
+ "_cycle_ruling": "Cycle confirmed as SUNDAY (day two) per Luyen 2026-07-18, overruling the earlier Saturday reading. Bow = m17 (10:09 rod-in-teeth rainbow).",
+ "_tuesday_account": "Per Luyen 2026-07-18: morning no-love was Thorne's (stymied on sippers); Luyen's two takes on emerger-dropper-behind-Griffith's-gnat; Thorne's bobber fish incl. the 9:52 bridge rainbow (cover); islands fish from drop-off on farthest braid (not inside braid); beaver-dam hour unrequited \u2014 Thorne fooled the farthest fish but never came tight."
 }
