@@ -362,15 +362,15 @@
    "photographer": "thorne",
    "camera": "iPhone 17 Pro",
    "place": "depuys",
-   "species": "cutbow",
+   "species": "rainbow",
    "angler": "luyen",
    "fly": null,
    "is_catch": true,
-   "caption": "Sunday morning at the riffle corner \u2014 Luyen's fish in the net, the little red-bodied fly still in its lip. \"Isn't that the cut?\"",
+   "caption": "The riffle-corner rainbow, Exhibit A \u2014 off the outside bend where the riffle dumps into the pool, the red-bodied spinner still in its lip.",
    "subject_kind": "fish-catch",
-   "species_confidence": "medium",
+   "species_confidence": "high",
    "hero_quality": 4,
-   "notable": "The fly visible at the fish's snout has a distinctly red body \u2014 a striking match for Jamie's tip that the rare red-bodied rusty spinner (size 18-20, poly yarn wings) was 'the key,' the fly Luyen caught nearly everything on.",
+   "notable": "Species per Luyen's own account (previously logged cutbow). The red-bodied fly visible in its lip is Jamie's 1-in-7 spinner.",
    "web": "fullsizerender-1.jpg"
   },
   {
@@ -486,7 +486,7 @@
    "angler": "thorne",
    "fly": null,
    "is_catch": true,
-   "caption": "Thorne's chunky brown over the weed bed \u2014 the last fish of DePuy's, eased back home.",
+   "caption": "The last fish of DePuy's, and Thorne's most memorable \u2014 a big brown that sat under the duckweed mat with just its snout up, sipping. He thought it was a small fish. It was not.",
    "subject_kind": "fish-catch",
    "species_confidence": "high",
    "hero_quality": 4,
@@ -788,5 +788,6 @@
   }
  ],
  "_analysis": "species/angler/captions merged 2026-07-16 from 6-agent visual pass cross-referenced against transcripts. Attribution basis in each agent report; anchor-calibrated.",
- "_export_shift_note": "Second photo batch (2026-07-17) carries a -2h timestamp shift from export; corrected here. Verified via burst neighbors of anchored originals."
+ "_export_shift_note": "Second photo batch (2026-07-17) carries a -2h timestamp shift from export; corrected here. Verified via burst neighbors of anchored originals.",
+ "_cycle_ruling": "Cycle confirmed as SUNDAY (day two) per Luyen 2026-07-18, overruling the earlier Saturday reading. Bow = m17 (10:09 rod-in-teeth rainbow)."
 }
