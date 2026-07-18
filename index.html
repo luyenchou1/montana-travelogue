@@ -898,7 +898,7 @@ function makeZoomable(wrap){
     zoomAt(x, y, z < 2.2 ? 2.2 : 1 / z);
   });
   wrap.addEventListener('pointerdown', e => {
-    if (e.target.closest('.dep-zoombtns')) return;
+    if (e.target.closest('.dep-zoombtns') || e.target.closest('.dep-pin')) return;
     e.preventDefault();
     wrap.setPointerCapture(e.pointerId);
     ptrs.set(e.pointerId, e); lastMid = null; lastDist = 0;
