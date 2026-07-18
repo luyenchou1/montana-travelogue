@@ -909,7 +909,9 @@ function makeZoomable(wrap){
     e.preventDefault();
     wrap.setPointerCapture(e.pointerId);
     ptrs.set(e.pointerId, e); lastMid = null; lastDist = 0;
+    if (ptrs.size >= 2) wrap.style.touchAction = 'none';
   });
+  wrap.addEventListener('touchmove', e => { if (e.touches.length >= 2) e.preventDefault(); }, {passive: false});
   wrap.addEventListener('pointermove', e => {
     if (!ptrs.has(e.pointerId)) return;
     const prev = ptrs.get(e.pointerId);
@@ -971,7 +973,14 @@ const MO_CLUSTERS = [
 ];
 const MODAYC = {Sun:'#B5432C', Mon:'#C9A45C', Tue:'#6FA0A6'};
 const MO_BOUNDS = [[46.985, -112.03], [47.085, -111.945]];
-const map = L.map('momap', {scrollWheelZoom: false});
+const map = L.map('momap', {scrollWheelZoom: false, touchZoom: true});
+const moC = document.getElementById('momap');
+moC.addEventListener('wheel', e => {
+  if (!(e.ctrlKey || e.metaKey)) return;
+  e.preventDefault();
+  const r = moC.getBoundingClientRect();
+  map.setZoomAround(L.point(e.clientX - r.left, e.clientY - r.top), map.getZoom() - e.deltaY * 0.01);
+}, {passive: false});
 const moSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 18, attribution: 'Imagery © Esri — Source: Esri, Maxar, Earthstar Geographics'
 });
