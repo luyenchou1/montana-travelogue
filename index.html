@@ -144,20 +144,26 @@ figcaption .meta{display:block;font-family:var(--mono);font-size:.68rem;color:va
   letter-spacing:.18em;text-transform:uppercase;padding:9px 16px;cursor:pointer;
   background:transparent;color:var(--sepia);border:1px solid var(--sepia-lt)}
 .dep-controls button.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-.dep-wrap{position:relative;max-width:1000px;margin:20px auto 0}
+.dep-wrap{position:relative;max-width:1000px;margin:20px auto 0;overflow:hidden}
+.zoominner{transform-origin:0 0;will-change:transform;position:relative}
+.dep-zoombtns{position:absolute;top:10px;right:10px;z-index:10;display:flex;flex-direction:column;gap:5px}
+.dep-zoombtns button{width:36px;height:36px;font-size:1.1rem;line-height:1;cursor:pointer;
+  background:rgba(243,236,218,.94);border:1px solid var(--sepia-lt);color:var(--ink);
+  font-family:var(--mono);border-radius:3px;box-shadow:0 2px 6px rgba(20,34,25,.25)}
+.dep-zoombtns button:active{background:var(--ink);color:var(--cream)}
 .dep-wrap img.depmap-img{width:100%;display:block;border:1px solid var(--sepia-lt);
   box-shadow:0 18px 40px -26px rgba(20,34,25,.5)}
 .dep-pin{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;
   border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;
   font-family:var(--mono);font-size:11px;font-weight:600;color:#EFE7D8;
   border:1.5px solid #2E3B32;box-shadow:0 0 0 3px rgba(239,231,216,.55),0 2px 6px rgba(0,0,0,.35);
-  transition:transform .15s ease}
-.dep-pin:hover{transform:translate(-50%,-50%) scale(1.25);z-index:5}
+  transition:transform .15s ease;transform:translate(-50%,-50%) scale(calc(1/var(--z,1)))}
+.dep-pin:hover{transform:translate(-50%,-50%) scale(calc(1.25/var(--z,1)));z-index:5}
 .dep-pin .ct{position:absolute;top:-7px;right:-10px;font-size:8.5px;color:#2E3B32;
   background:#EFE7D8;border-radius:6px;padding:0 3px;border:1px solid var(--sepia-lt)}
 .dep-credit{max-width:1000px;margin:8px auto 0;text-align:center;
   font-family:var(--mono);font-size:.66rem;color:var(--sepia);letter-spacing:.06em}
-.dep-feat{position:absolute;transform:translate(-50%,-130%);font-family:var(--mono);
+.dep-feat{position:absolute;transform:translate(-50%,-130%) scale(calc(1/var(--z,1)));font-family:var(--mono);
   font-size:9px;letter-spacing:.08em;color:#EFE7D8;text-shadow:0 1px 3px rgba(0,0,0,.9);
   white-space:nowrap;pointer-events:none;text-align:center}
 .dep-feat i{display:block;width:7px;height:7px;border-radius:50%;background:#EFE7D8;
@@ -475,10 +481,16 @@ table.tally .n{font-family:var(--mono);color:var(--ink)}
     <button data-view="sat">Satellite</button>
   </div>
   <div class="dep-wrap" id="depclassic">
-    <img class="depmap-img" src="img/depuy_map.jpg" alt="Classic hand-drawn map of DePuy Spring Creek by Eva DePuy and Betty Jo Smith">
+    <div class="zoominner">
+      <img class="depmap-img" src="img/depuy_map.jpg" alt="Classic hand-drawn map of DePuy Spring Creek by Eva DePuy and Betty Jo Smith">
+    </div>
+    <div class="dep-zoombtns"><button data-act="in" aria-label="zoom in">+</button><button data-act="out" aria-label="zoom out">&#8722;</button><button data-act="reset" aria-label="reset view">&#10226;</button></div>
   </div>
   <div class="dep-wrap" id="depsat" style="display:none">
-    <img class="depmap-img" src="img/depuy_sat.jpg" alt="Satellite view of DePuy Spring Creek rotated to match the classic map, north pointing left">
+    <div class="zoominner">
+      <img class="depmap-img" src="img/depuy_sat.jpg" alt="Satellite view of DePuy Spring Creek rotated to match the classic map, north pointing left">
+    </div>
+    <div class="dep-zoombtns"><button data-act="in" aria-label="zoom in">+</button><button data-act="out" aria-label="zoom out">&#8722;</button><button data-act="reset" aria-label="reset view">&#10226;</button></div>
   </div>
   <div class="dep-credit">CLASSIC MAP © DEPUY SPRING CREEK — EVA DEPUY &amp; BETTY JO SMITH, YOUR HOSTESSES. GEOGRAPHICALLY DEBATABLE, SENTIMENTALLY EXACT.<br>SATELLITE PLATE ROTATED TO MATCH — NORTH LEFT — IMAGERY © ESRI, MAXAR, EARTHSTAR GEOGRAPHICS. SAME PINS, SAME NUMBERS, BOTH WORLDS.</div>
   <div class="map-key" id="mapkey"><b>1</b> — FRI 14:51–14:55 · 3 photos · the closed shop &amp; the sign<br><b>2</b> — SAT 08:47–10:01 · 6 photos · cutthroat, rainbow<br><b>3</b> — SAT 10:49–11:40 · 2 photos · brown<br><b>4</b> — SAT 12:01 · 1 photo · scenes<br><b>5</b> — SAT 12:14 · 1 photo · rainbow<br><b>6</b> — SAT 13:30–13:31 · 2 photos · scenes<br><b>7</b> — SUN 09:59–10:09 · 3 photos · cutbow, rainbow<br><b>8</b> — SUN 12:10–13:10 · 3 photos · brown, cutthroat<br><b>9</b> — SAT 20:52 · 1 photo · the cow, the lane, the evening honey hole<br>PIN COLORS — SEPIA FRI · GOLD SAT · RUST SUN · SAME NUMBERS ON BOTH VIEWS</div>
@@ -836,8 +848,8 @@ function renderDepPins(container, xKey, yKey){
     container.appendChild(el);
   });
 }
-renderDepPins(document.getElementById('depclassic'), 'cx', 'cy');
-const depSat = document.getElementById('depsat');
+renderDepPins(document.querySelector('#depclassic .zoominner'), 'cx', 'cy');
+const depSat = document.querySelector('#depsat .zoominner');
 renderDepPins(depSat, 'sx', 'sy');
 DEP_FEATS.forEach(f => {
   const el = document.createElement('div');
@@ -846,12 +858,78 @@ DEP_FEATS.forEach(f => {
   el.innerHTML = '<i></i>' + f.name;
   depSat.appendChild(el);
 });
+function makeZoomable(wrap){
+  const inner = wrap.querySelector('.zoominner');
+  let z = 1, tx = 0, ty = 0;
+  const ptrs = new Map();
+  let lastMid = null, lastDist = 0;
+  function clampPan(){
+    const r = wrap.getBoundingClientRect();
+    tx = Math.min(0, Math.max(r.width  - r.width  * z, tx));
+    ty = Math.min(0, Math.max(r.height - r.height * z, ty));
+  }
+  function apply(){
+    clampPan();
+    inner.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + z + ')';
+    inner.style.setProperty('--z', z);
+    wrap.style.touchAction = z > 1 ? 'none' : 'pan-y';
+  }
+  function zoomAt(cx, cy, f){
+    const z2 = Math.min(5, Math.max(1, z * f));
+    const nx = (cx - tx) / z, ny = (cy - ty) / z;
+    z = z2; tx = cx - nx * z; ty = cy - ny * z;
+    if (z === 1){ tx = 0; ty = 0; }
+    apply();
+  }
+  function local(e){ const r = wrap.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+  wrap.addEventListener('wheel', e => {
+    if (!(e.ctrlKey || e.metaKey)) return;
+    e.preventDefault();
+    const [x, y] = local(e);
+    zoomAt(x, y, Math.exp(-e.deltaY * 0.01));
+  }, {passive: false});
+  wrap.addEventListener('dblclick', e => {
+    const [x, y] = local(e);
+    zoomAt(x, y, z < 2.2 ? 2.2 : 1 / z);
+  });
+  wrap.addEventListener('pointerdown', e => { ptrs.set(e.pointerId, e); lastMid = null; lastDist = 0; });
+  wrap.addEventListener('pointermove', e => {
+    if (!ptrs.has(e.pointerId)) return;
+    const prev = ptrs.get(e.pointerId);
+    ptrs.set(e.pointerId, e);
+    const ps = [...ptrs.values()];
+    if (ps.length === 2){
+      e.preventDefault();
+      const r = wrap.getBoundingClientRect();
+      const mid = [(ps[0].clientX + ps[1].clientX)/2 - r.left, (ps[0].clientY + ps[1].clientY)/2 - r.top];
+      const dist = Math.hypot(ps[0].clientX - ps[1].clientX, ps[0].clientY - ps[1].clientY);
+      if (lastDist) zoomAt(mid[0], mid[1], dist / lastDist);
+      if (lastMid){ tx += mid[0] - lastMid[0]; ty += mid[1] - lastMid[1]; apply(); }
+      lastMid = mid; lastDist = dist;
+    } else if (ps.length === 1 && z > 1){
+      e.preventDefault();
+      tx += e.clientX - prev.clientX; ty += e.clientY - prev.clientY; apply();
+    }
+  }, {passive: false});
+  ['pointerup','pointercancel','pointerleave'].forEach(t => wrap.addEventListener(t, e => { ptrs.delete(e.pointerId); lastMid = null; lastDist = 0; }));
+  wrap.querySelectorAll('.dep-zoombtns button').forEach(b => b.addEventListener('click', e => {
+    e.stopPropagation();
+    const r = wrap.getBoundingClientRect();
+    if (b.dataset.act === 'in') zoomAt(r.width/2, r.height/2, 1.6);
+    else if (b.dataset.act === 'out') zoomAt(r.width/2, r.height/2, 1/1.6);
+    else { z = 1; tx = 0; ty = 0; apply(); }
+  }));
+  return { reset(){ z = 1; tx = 0; ty = 0; apply(); } };
+}
+const zoomClassic = makeZoomable(document.getElementById('depclassic'));
+const zoomSat = makeZoomable(document.getElementById('depsat'));
 document.querySelectorAll('.dep-controls button').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('.dep-controls button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
   const sat = b.dataset.view === 'sat';
   document.getElementById('depclassic').style.display = sat ? 'none' : '';
   document.getElementById('depsat').style.display = sat ? '' : 'none';
+  zoomClassic.reset(); zoomSat.reset();
 }));
 
 /* ============ MISSOURI MAP ============ */
